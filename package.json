@@ -5,6 +5,10 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "element-plus": "^2.7.6",
     "vitepress": "^1.2.3"
+  },
+  "devDependencies": {
+    "less": "^4.2.0"
   }
 }
