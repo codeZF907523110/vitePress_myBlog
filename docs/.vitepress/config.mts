@@ -5,7 +5,7 @@ export default defineConfig({
   description: "A VitePress Site",
   base: '/vitePress_myBlog',
   themeConfig: {
-    logo: '../../assets/svg/blogLogo.svg',
+    logo: '/assets/svg/blogLogo.svg',
     logoLink: '/vitePress_myBlog/pages/home',
     docFooter: {
       prev: '上一页',
