@@ -5,6 +5,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "cnpm": "^9.4.0",
     "element-plus": "^2.7.6",
     "three": "^0.167.0",
     "vitepress": "^1.2.3"
