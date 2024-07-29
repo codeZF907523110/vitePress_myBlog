@@ -14,7 +14,7 @@ export default defineConfig({
     // Vite 配置选项
     build: {
       rollupOptions: {
-        external: ['axios'],
+        external: ['THREE'],
       },
     }
   },
