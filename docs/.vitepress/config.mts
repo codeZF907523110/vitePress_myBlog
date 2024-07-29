@@ -10,6 +10,14 @@ export default defineConfig({
   base: '/vitePress_myBlog',
   cleanUrls: true,
   metaChunk: true,
+  vite: {
+    // Vite 配置选项
+    build: {
+      rollupOptions: {
+        external: ['axios'],
+      },
+    }
+  },
   markdown: {
     theme: 'synthwave-84',
     lineNumbers: true
