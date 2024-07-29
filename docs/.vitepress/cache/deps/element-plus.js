@@ -88,7 +88,7 @@ import {
   withDirectives,
   withKeys,
   withModifiers
-} from "./chunk-55WMPE2F.js";
+} from "./chunk-LPMR4Q3D.js";
 import {
   __commonJS,
   __toESM
@@ -803,7 +803,7 @@ var whenMouse = (handler) => {
   return (e) => e.pointerType === "mouse" ? handler(e) : void 0;
 };
 
-// node_modules/element-plus/node_modules/@vueuse/shared/index.mjs
+// node_modules/@vueuse/shared/index.mjs
 var __defProp$9 = Object.defineProperty;
 var __defProps$6 = Object.defineProperties;
 var __getOwnPropDescs$6 = Object.getOwnPropertyDescriptors;
@@ -1042,7 +1042,7 @@ function useTimeoutFn(cb, interval, options = {}) {
   };
 }
 
-// node_modules/element-plus/node_modules/@vueuse/core/index.mjs
+// node_modules/@vueuse/core/index.mjs
 function unrefElement(elRef) {
   var _a2;
   const plain = resolveUnref(elRef);

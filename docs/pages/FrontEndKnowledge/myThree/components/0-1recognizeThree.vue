@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
-import * as THREE from 'THREE'
+import * as THREE from 'three'
 onMounted(() => {
   const myCanvas: any = document.getElementById('myCanvas')
   const scence = new THREE.Scene()
