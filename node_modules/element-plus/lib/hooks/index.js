@@ -94,6 +94,7 @@ exports.useFocusController = index$s.useFocusController;
 exports.DEFAULT_EMPTY_VALUES = index$t.DEFAULT_EMPTY_VALUES;
 exports.DEFAULT_VALUE_ON_CLEAR = index$t.DEFAULT_VALUE_ON_CLEAR;
 exports.SCOPE = index$t.SCOPE;
+exports.emptyValuesContextKey = index$t.emptyValuesContextKey;
 exports.useEmptyValues = index$t.useEmptyValues;
 exports.useEmptyValuesProps = index$t.useEmptyValuesProps;
 exports.ariaProps = index$u.ariaProps;

@@ -7,6 +7,7 @@ import { useLocale, localeContextKey } from '../../../../hooks/use-locale/index.
 import { useZIndex, defaultInitialZIndex, zIndexContextKey } from '../../../../hooks/use-z-index/index.mjs';
 import { debugWarn } from '../../../../utils/error.mjs';
 import { SIZE_INJECTION_KEY } from '../../../../hooks/use-size/index.mjs';
+import { emptyValuesContextKey } from '../../../../hooks/use-empty-values/index.mjs';
 import { keysOf } from '../../../../utils/objects.mjs';
 
 const globalConfig = ref();
@@ -69,6 +70,10 @@ const provideGlobalConfig = (config, app, global = false) => {
   provideFn(SIZE_INJECTION_KEY, {
     size: computed(() => context.value.size || "")
   });
+  provideFn(emptyValuesContextKey, computed(() => ({
+    emptyValues: context.value.emptyValues,
+    valueOnClear: context.value.valueOnClear
+  })));
   if (global || !globalConfig.value) {
     globalConfig.value = context.value;
   }

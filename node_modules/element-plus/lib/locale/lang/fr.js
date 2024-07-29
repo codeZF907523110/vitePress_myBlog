@@ -141,6 +141,11 @@ var fr = {
       clearFilter: "Tous",
       sumText: "Somme"
     },
+    tour: {
+      next: "suivant",
+      previous: "pr\xE9c\xE9dent",
+      finish: "fin"
+    },
     tree: {
       emptyText: "Aucune donn\xE9e"
     },

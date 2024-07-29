@@ -2,7 +2,9 @@
 
 ## 一、svg 简介
 
-`SVG 是一种用于描述二维图形的 XML 标记语言，与位图图像不同，SVG 图像以文本形式存储，并且可以缩放到任意大小而不会失真，因为它们基于数学描述而不是像素。`
+::: tip 描述
+`SVG` 是一种用于描述二维图形的 `XML` 标记语言，与位图图像不同，`SVG` 图像以文本形式存储，并且可以缩放到任意大小而不会失真，因为它们基于数学描述而不是像素。
+:::
 
 ## 二、svg 用法
 
@@ -13,7 +15,7 @@
 
 #### 事例：
 
-```js
+```html
 <svg width="200" <!-- 指定SVG画布的宽度 -->
   height="200"
   <!-- 指定SVG画布的高度 -->
@@ -42,7 +44,7 @@
 `svg 的属性有两种用法，一种是在标签中直接写，另一种则是通过 css 的方式写，如 style、class 等`
 
 #### 矩形
-```js
+```html
 <rect
   x="x-coordinate"        <!-- 矩形左上角的 x 坐标 -->
   y="y-coordinate"        <!-- 矩形左上角的 y 坐标 -->
@@ -55,16 +57,16 @@
   stroke-width="width-value" <!-- 矩形的描边宽度 -->
 />
 ```
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
       <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
     </svg>
   </template>
-</showsvg>
+</showRun>
 
 #### 圆形
-```js
+```html
 <circle
   cx="x-coordinate"      <!-- 圆心的 x 坐标 -->
   cy="y-coordinate"      <!-- 圆心的 y 坐标 -->
@@ -74,16 +76,16 @@
   stroke-width="width"   <!-- 圆的描边宽度 -->
 />
 ```
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
       <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
     </svg> 
   </template>
-</showsvg>
+</showRun>
 
 #### 椭圆
-```js
+```html
 <ellipse
   cx="x-coordinate"      <!-- 椭圆中心点的 x 坐标 -->
   cy="y-coordinate"      <!-- 椭圆中心点的 y 坐标 -->
@@ -94,16 +96,16 @@
   stroke-width="width"   <!-- 椭圆的描边宽度 -->
 />
 ```
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="100" cy="100" rx="80" ry="50" fill="blue" stroke="black" stroke-width="2" />
     </svg>
   </template>
-</showsvg>
+</showRun>
 
 #### 直线
-```js
+```html
 <line
   x1="x1-coordinate"     <!-- 起点的 x 坐标 -->
   y1="y1-coordinate"     <!-- 起点的 y 坐标 -->
@@ -114,17 +116,17 @@
 />
 ```
 
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
       <line x1="50" y1="50" x2="150" y2="150" stroke="black" stroke-width="2" />
     </svg>
   </template>
-</showsvg>
+</showRun>
 
 #### 多边形
 
-```js
+```html
 <polygon
   points="x1,y1 x2,y2 x3,y3 ..."   <!-- 多边形各个顶点的坐标 -->
   fill="fill-color"                <!-- 多边形的填充颜色 -->
@@ -133,17 +135,17 @@
 />
 ```
 
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
       <polygon points="100,10 150,190 50,190" fill="orange" stroke="black" stroke-width="2" />
     </svg>
   </template>
-</showsvg>
+</showRun>
 
 #### 多段线
 
-```js
+```html
 <polyline
   points="x1,y1 x2,y2 x3,y3 ..."   <!-- 多段线各个顶点的坐标 -->
   fill="none"                      <!-- 多段线的填充颜色，使用 "none" 表示不填充 -->
@@ -152,19 +154,19 @@
 />
 ```
 
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
       <polyline points="50,50 100,150 150,100 200,200" fill="none" stroke="black" stroke-width="2" />
     </svg>
   </template>
-</showsvg>
+</showRun>
 
 #### 路径
 
 - `使用 <path> 元素可以绘制直线、曲线、弧线等各种复杂的图形，并且可以通过设置路径命令来控制路径的形状和样式。`
 - `path是所有元素中最复杂的图形，后续会进行详细的介绍`
-```js
+```html
 <path
   d="path-data"            <!-- 定义路径的路径数据 -->
   fill="fill-color"        <!-- 路径的填充颜色 -->
@@ -173,16 +175,16 @@
 />
 ```
 
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
       <path d="M 50 50 L 150 50 L 100 150 Z" fill="orange" stroke="black" stroke-width="2" />
     </svg>
   </template>
-</showsvg>
+</showRun>
 
 #### 文本
-```js
+```html
 <text
   x="x-coordinate"          <!-- 文本左上角的 x 坐标 -->
   y="y-coordinate"          <!-- 文本左上角的 y 坐标 -->
@@ -195,16 +197,16 @@
 </text>
 ```
 
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
       <text x="100" y="100" font-family="Arial" font-size="20" fill="blue" text-anchor="middle">Hello, SVG!</text>
     </svg>
   </template>
-</showsvg>
+</showRun>
 
 #### 滤镜
-```js
+```html
 <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
   <!-- 定义模糊滤镜 -->
   <filter id="blur_filter">
@@ -217,7 +219,7 @@
   <rect x="50" y="50" width="100" height="80" fill="red" filter="url(#blur_filter)" />
 </svg>
 ```
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
       <!-- 定义模糊滤镜 -->
@@ -228,10 +230,10 @@
       <rect x="50" y="50" width="100" height="80" fill="red" filter="url(#blur_filter)" />
     </svg>
   </template>
-</showsvg>
+</showRun>
 
 #### 线性渐变
-```js
+```html
 <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
   <!-- 定义线性渐变 -->
   <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -244,7 +246,7 @@
 </svg>
 ```
 
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
       <defs>
@@ -256,12 +258,12 @@
       <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
     </svg>
   </template>
-</showsvg>
+</showRun>
 
 
 
 #### 放射性渐变
-```js
+```html
 <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
   <!-- 定义径向渐变 -->
   <radialGradient id="gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
@@ -274,7 +276,7 @@
 </svg>
 ```
 
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
       <defs>
@@ -286,10 +288,10 @@
       <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
     </svg>
   </template>
-</showsvg>
+</showRun>
 
 
 
 <script setup>
-import showSvg from '../../components/showSvg.vue'
+import showRun from '../../components/showRun.vue'
 </script>

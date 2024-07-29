@@ -1,61 +1,67 @@
 {
-  "hash": "2675ade3",
+  "hash": "84085779",
   "configHash": "2813a213",
-  "lockfileHash": "213fcabf",
-  "browserHash": "dc7b7d76",
+  "lockfileHash": "44e36f86",
+  "browserHash": "a0a6e325",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "2e20a6cd",
+      "fileHash": "9ce62c75",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "0fe0720f",
+      "fileHash": "f8849ee0",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "dd516cbe",
+      "fileHash": "70bdb52c",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "e1a8560b",
+      "fileHash": "f7af4ec1",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "27e90ffe",
+      "fileHash": "c2c8f017",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "339af546",
+      "fileHash": "fe4b9e15",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "95cee8c1",
+      "fileHash": "d0782269",
+      "needsInterop": false
+    },
+    "three": {
+      "src": "../../../../node_modules/three/build/three.module.js",
+      "file": "three.js",
+      "fileHash": "8436557a",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-AVTQISUB": {
-      "file": "chunk-AVTQISUB.js"
+    "chunk-VEVMK4XW": {
+      "file": "chunk-VEVMK4XW.js"
     },
     "chunk-O3YQPVDG": {
       "file": "chunk-O3YQPVDG.js"
     },
-    "chunk-YDC6UI7M": {
-      "file": "chunk-YDC6UI7M.js"
+    "chunk-55WMPE2F": {
+      "file": "chunk-55WMPE2F.js"
     },
     "chunk-5WRI5ZAA": {
       "file": "chunk-5WRI5ZAA.js"

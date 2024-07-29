@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "element-plus": "^2.7.6",
+    "three": "^0.167.0",
     "vitepress": "^1.2.3"
   },
   "devDependencies": {

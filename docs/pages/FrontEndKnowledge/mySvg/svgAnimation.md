@@ -41,14 +41,14 @@
   <animate attributeName="r" from="0" to="50" dur="1s" xlink:href="myCircle" />
 </svg>
 ```
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg>
       <circle id="myCircle" cx="100" cy="100" r="50" fill="red" />
       <animate attributeName="r" from="0" to="50" dur="1s" xlink:href="#myCircle" />
     </svg>
   </template>
-</showSvg>
+</showRun>
 
 2. **在标签内部使用**
 ```js
@@ -84,7 +84,7 @@
   </circle>
 </svg>
 ```
-<showSvg>
+<showRun>
   <template #svgCode>
     <div>点一下👇</div>
     <svg width="500" height="500">    
@@ -108,7 +108,7 @@
       </circle>
     </svg>
   </template>
-</showSvg>
+</showRun>
 
 ## 四、三种动画实现效果
 1. **基础动画(animate)**
@@ -141,7 +141,7 @@
   </circle>
 </svg>
 ```
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg width="500" height="500">
       <circle cx="100" cy="100" r="50" fill="#7fd">
@@ -166,7 +166,7 @@
       </circle>
     </svg>
   </template>
-</showSvg>
+</showRun>
 
 2. **形变动画(animateTransform)**
 形变动画注意的点：
@@ -197,7 +197,7 @@
 </svg>
 ```
 
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg>
       <rect width="100" height="50" fill="blue" stroke="red" stroke-width="4">
@@ -220,7 +220,7 @@
       </rect>
     </svg>
   </template>
-</showSvg>
+</showRun>
 
 3. **路径动画**
 `路径动画：可以让某一元素沿着某一路径运动，使用animateMotion标签`
@@ -242,7 +242,7 @@
 </svg>
 ```
 
-<showSvg>
+<showRun>
   <template #svgCode>
     <svg width="500" height="500" viewBox="-100 -100 500 500">
       <path d="M 0 0 C 0 300 300 300 300 0" stroke="#4a6" stroke-width="2" fill="none"></path>
@@ -258,8 +258,8 @@
       </rect>
     </svg>
   </template>
-</showSvg>
+</showRun>
 
 <script setup>
-import showSvg from '../../components/showSvg.vue'
+import showRun from '../../components/showRun.vue'
 </script>

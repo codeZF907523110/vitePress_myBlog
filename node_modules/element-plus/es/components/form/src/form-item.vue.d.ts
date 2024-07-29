@@ -6,6 +6,7 @@ import type { FormItemValidateState } from './form-item';
 declare const _default: import("vue").DefineComponent<{
     readonly label: StringConstructor;
     readonly labelWidth: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
+    readonly labelPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "top" | "left" | "right", unknown, "", boolean>;
     readonly prop: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("./form-item").FormItemProp & {}) | (() => import("./form-item").FormItemProp) | ((new (...args: any[]) => import("./form-item").FormItemProp & {}) | (() => import("./form-item").FormItemProp))[], unknown, unknown>>;
         readonly required: false;
@@ -39,6 +40,7 @@ declare const _default: import("vue").DefineComponent<{
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
         readonly label: StringConstructor;
         readonly labelWidth: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
+        readonly labelPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "top" | "left" | "right", unknown, "", boolean>;
         readonly prop: {
             readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("./form-item").FormItemProp & {}) | (() => import("./form-item").FormItemProp) | ((new (...args: any[]) => import("./form-item").FormItemProp & {}) | (() => import("./form-item").FormItemProp))[], unknown, unknown>>;
             readonly required: false;
@@ -103,10 +105,11 @@ declare const _default: import("vue").DefineComponent<{
     formItemRef: import("vue").Ref<HTMLDivElement | undefined>;
     initialValue: any;
     isResettingField: boolean;
+    labelPosition: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "top" | "left" | "right", unknown> | undefined>;
     labelStyle: import("vue").ComputedRef<CSSProperties>;
     contentStyle: import("vue").ComputedRef<CSSProperties>;
     formItemClasses: import("vue").ComputedRef<(string | {
-        [x: string]: boolean | undefined;
+        [x: string]: boolean | import("element-plus/es/utils").EpPropMergeType<StringConstructor, "top" | "left" | "right", unknown> | undefined;
     })[]>;
     _inlineMessage: import("vue").ComputedRef<boolean>;
     validateClasses: import("vue").ComputedRef<(string | {
@@ -147,6 +150,7 @@ declare const _default: import("vue").DefineComponent<{
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly label: StringConstructor;
     readonly labelWidth: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
+    readonly labelPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "top" | "left" | "right", unknown, "", boolean>;
     readonly prop: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("./form-item").FormItemProp & {}) | (() => import("./form-item").FormItemProp) | ((new (...args: any[]) => import("./form-item").FormItemProp & {}) | (() => import("./form-item").FormItemProp))[], unknown, unknown>>;
         readonly required: false;
@@ -178,6 +182,7 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     readonly required: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly labelPosition: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "top" | "left" | "right", unknown>;
     readonly labelWidth: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
     readonly showMessage: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly inlineMessage: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, BooleanConstructor], unknown, unknown>;

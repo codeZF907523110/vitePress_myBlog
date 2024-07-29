@@ -54,7 +54,7 @@
 ```
 
 
-<showSvg @changeRunStatus="changeRunStatus">
+<showRun @changeRunStatus="changeRunStatus">
   <template #svgCode>
     <svg class="icon" viewBox="0 0 1024 1024" width="200" height="200">
       <path
@@ -67,11 +67,11 @@
       />
     </svg>
   </template>
-</showsvg>
+</showRun>
 
 <script setup>
   import { onMounted, nextTick } from 'vue'
-  import showSvg from '../../components/showSvg.vue'
+  import showRun from '../../components/showRun.vue'
   const changeRunStatus = (status) => {
     if (status) {
       setTimeout(() => {

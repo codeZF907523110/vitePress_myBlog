@@ -16,6 +16,6 @@
 
 <style lang="less" scoped>
   code {
-    color: red!important;
+    /* color: red!important; */
   }
 </style>

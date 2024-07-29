@@ -12,7 +12,7 @@ const count = ref(0)
 
 <style module>
 .button {
-  color: red;
+  /* color: red; */
   font-weight: bold;
 }
 </style>

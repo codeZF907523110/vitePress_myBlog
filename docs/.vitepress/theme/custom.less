@@ -4,6 +4,43 @@
 :root {
   // --vp-code-bg: #eef0f4;
   // --vp-code-color: #555666;
+  ul li::marker {
+    color: rgb(255, 104, 129)!important;
+  }
+  --vp-c-brand-1: #42b883!important;
+  .vp-doc :not(pre) > code {
+    color: #FF8380!important;
+  }
+  .common-image {
+    width: 60%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .vp-doc div[class*='language-'].line-numbers-mode {
+    background-color: #282c34!important;
+    button {
+      background-color: #282c34!important;
+    }
+  }
+  .vp-doc [class*='language-'] > span.lang {
+    color: #ADB1C2!important;
+  }
+  .vp-doc .line-numbers-wrapper {
+    color: #ADB1C2!important;
+  }
+  .vp-doc [class*='language-'] pre::-webkit-scrollbar {
+    background-color: #f1f1f1;
+  }
+  .vp-doc [class*='language-'] pre::-webkit-scrollbar-thumb {
+    background: #404040;
+  }
+}
+.outline-link:hover {
+  color: #42b883!important;
+}
+.outline-link.active {
+  color: #42b883!important;
 }
  
 /** 

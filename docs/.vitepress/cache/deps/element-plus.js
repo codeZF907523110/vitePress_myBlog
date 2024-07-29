@@ -88,7 +88,7 @@ import {
   withDirectives,
   withKeys,
   withModifiers
-} from "./chunk-YDC6UI7M.js";
+} from "./chunk-55WMPE2F.js";
 import {
   __commonJS,
   __toESM
@@ -17431,19 +17431,18 @@ function isTopLayer(element) {
     }
   });
 }
-function isContainingBlock(element) {
+function isContainingBlock(elementOrCss) {
   const webkit = isWebKit();
-  const css = getComputedStyle2(element);
+  const css = isElement3(elementOrCss) ? getComputedStyle2(elementOrCss) : elementOrCss;
   return css.transform !== "none" || css.perspective !== "none" || (css.containerType ? css.containerType !== "normal" : false) || !webkit && (css.backdropFilter ? css.backdropFilter !== "none" : false) || !webkit && (css.filter ? css.filter !== "none" : false) || ["transform", "perspective", "filter"].some((value) => (css.willChange || "").includes(value)) || ["paint", "layout", "strict", "content"].some((value) => (css.contain || "").includes(value));
 }
 function getContainingBlock(element) {
   let currentNode = getParentNode(element);
   while (isHTMLElement(currentNode) && !isLastTraversableNode(currentNode)) {
-    if (isTopLayer(currentNode)) {
-      return null;
-    }
     if (isContainingBlock(currentNode)) {
       return currentNode;
+    } else if (isTopLayer(currentNode)) {
+      return null;
     }
     currentNode = getParentNode(currentNode);
   }
@@ -17467,8 +17466,8 @@ function getNodeScroll(element) {
     };
   }
   return {
-    scrollLeft: element.pageXOffset,
-    scrollTop: element.pageYOffset
+    scrollLeft: element.scrollX,
+    scrollTop: element.scrollY
   };
 }
 function getParentNode(node) {
@@ -18283,6 +18282,7 @@ function useFocusController(target2, { afterFocus, beforeBlur, afterBlur } = {})
 }
 
 // node_modules/element-plus/es/hooks/use-empty-values/index.mjs
+var emptyValuesContextKey = Symbol("emptyValuesContextKey");
 var SCOPE3 = "use-empty-values";
 var DEFAULT_EMPTY_VALUES = ["", void 0, null];
 var DEFAULT_VALUE_ON_CLEAR = void 0;
@@ -18295,10 +18295,7 @@ var useEmptyValuesProps = buildProps({
   }
 });
 var useEmptyValues = (props, defaultValue) => {
-  let config = useGlobalConfig();
-  if (!config.value) {
-    config = ref({});
-  }
+  const config = getCurrentInstance() ? inject(emptyValuesContextKey, ref({})) : ref({});
   const emptyValues = computed(() => props.emptyValues || config.value.emptyValues || DEFAULT_EMPTY_VALUES);
   const valueOnClear = computed(() => {
     if (isFunction(props.valueOnClear)) {
@@ -18402,6 +18399,10 @@ var provideGlobalConfig = (config, app, global2 = false) => {
   provideFn(SIZE_INJECTION_KEY, {
     size: computed(() => context.value.size || "")
   });
+  provideFn(emptyValuesContextKey, computed(() => ({
+    emptyValues: context.value.emptyValues,
+    valueOnClear: context.value.valueOnClear
+  })));
   if (global2 || !globalConfig.value) {
     globalConfig.value = context.value;
   }
@@ -18465,7 +18466,7 @@ var ConfigProvider = defineComponent({
 var ElConfigProvider = withInstall(ConfigProvider);
 
 // node_modules/element-plus/es/version.mjs
-var version2 = "2.7.6";
+var version2 = "2.7.7";
 
 // node_modules/element-plus/es/make-installer.mjs
 var makeInstaller = (components = []) => {
@@ -20169,7 +20170,7 @@ Schema.warning = warning;
 Schema.messages = messages;
 Schema.validators = validators;
 
-// node_modules/element-plus/es/components/form/src/form-item.mjs
+// node_modules/element-plus/es/components/form/src/form-item2.mjs
 var formItemValidateStates = [
   "",
   "error",
@@ -20180,6 +20181,11 @@ var formItemProps = buildProps({
   label: String,
   labelWidth: {
     type: [String, Number],
+    default: ""
+  },
+  labelPosition: {
+    type: String,
+    values: ["left", "right", "top", ""],
     default: ""
   },
   prop: {
@@ -20280,7 +20286,8 @@ var FormLabelWrap = defineComponent({
         const style = {};
         if (hasLabel && autoLabelWidth && autoLabelWidth !== "auto") {
           const marginWidth = Math.max(0, Number.parseInt(autoLabelWidth, 10) - computedWidth.value);
-          const marginPosition = formContext.labelPosition === "left" ? "marginRight" : "marginLeft";
+          const labelPosition = formItemContext.labelPosition || formContext.labelPosition;
+          const marginPosition = labelPosition === "left" ? "marginRight" : "marginLeft";
           if (marginWidth) {
             style[marginPosition] = `${marginWidth}px`;
           }
@@ -20299,7 +20306,7 @@ var FormLabelWrap = defineComponent({
   }
 });
 
-// node_modules/element-plus/es/components/form/src/form-item2.mjs
+// node_modules/element-plus/es/components/form/src/form-item.mjs
 var _hoisted_1 = ["role", "aria-labelledby"];
 var __default__5 = defineComponent({
   name: "ElFormItem"
@@ -20322,8 +20329,9 @@ var _sfc_main5 = defineComponent({
     const formItemRef = ref();
     let initialValue = void 0;
     let isResettingField = false;
+    const labelPosition = computed(() => props.labelPosition || (formContext == null ? void 0 : formContext.labelPosition));
     const labelStyle = computed(() => {
-      if ((formContext == null ? void 0 : formContext.labelPosition) === "top") {
+      if (labelPosition.value === "top") {
         return {};
       }
       const labelWidth = addUnit(props.labelWidth || (formContext == null ? void 0 : formContext.labelWidth) || "");
@@ -20332,7 +20340,7 @@ var _sfc_main5 = defineComponent({
       return {};
     });
     const contentStyle = computed(() => {
-      if ((formContext == null ? void 0 : formContext.labelPosition) === "top" || (formContext == null ? void 0 : formContext.inline)) {
+      if (labelPosition.value === "top" || (formContext == null ? void 0 : formContext.inline)) {
         return {};
       }
       if (!props.label && !props.labelWidth && isNested) {
@@ -20353,7 +20361,10 @@ var _sfc_main5 = defineComponent({
       ns.is("required", isRequired.value || props.required),
       ns.is("no-asterisk", formContext == null ? void 0 : formContext.hideRequiredAsterisk),
       (formContext == null ? void 0 : formContext.requireAsteriskPosition) === "right" ? "asterisk-right" : "asterisk-left",
-      { [ns.m("feedback")]: formContext == null ? void 0 : formContext.statusIcon }
+      {
+        [ns.m("feedback")]: formContext == null ? void 0 : formContext.statusIcon,
+        [ns.m(`label-${labelPosition.value}`)]: labelPosition.value
+      }
     ]);
     const _inlineMessage = computed(() => isBoolean2(props.inlineMessage) ? props.inlineMessage : (formContext == null ? void 0 : formContext.inlineMessage) || false);
     const validateClasses = computed(() => [
@@ -23726,7 +23737,7 @@ var Autocomplete = _export_sfc(_sfc_main18, [["__file", "autocomplete.vue"]]);
 // node_modules/element-plus/es/components/autocomplete/index.mjs
 var ElAutocomplete = withInstall(Autocomplete);
 
-// node_modules/element-plus/es/components/avatar/src/avatar2.mjs
+// node_modules/element-plus/es/components/avatar/src/avatar.mjs
 var avatarProps = buildProps({
   size: {
     type: [Number, String],
@@ -23757,7 +23768,7 @@ var avatarEmits = {
   error: (evt) => evt instanceof Event
 };
 
-// node_modules/element-plus/es/components/avatar/src/avatar.mjs
+// node_modules/element-plus/es/components/avatar/src/avatar2.mjs
 var _hoisted_15 = ["src", "alt", "srcset"];
 var __default__16 = defineComponent({
   name: "ElAvatar"
@@ -25201,8 +25212,12 @@ function useButtonCustomStyle(props) {
   const ns = useNamespace("button");
   return computed(() => {
     let styles = {};
-    const buttonColor = props.color;
+    let buttonColor = props.color;
     if (buttonColor) {
+      const match = buttonColor.match(/var\((.*?)\)/);
+      if (match) {
+        buttonColor = window.getComputedStyle(window.document.documentElement).getPropertyValue(match[1]);
+      }
       const color = new TinyColor(buttonColor);
       const activeBgColor = props.dark ? color.tint(20).toString() : darken(color, 20);
       if (props.plain) {
@@ -25572,6 +25587,7 @@ var _sfc_main26 = defineComponent({
     "change",
     "focus",
     "blur",
+    "clear",
     "calendar-change",
     "panel-change",
     "visible-change",
@@ -25811,6 +25827,7 @@ var _sfc_main26 = defineComponent({
         pickerVisible.value = false;
         pickerOptions.value.handleClear && pickerOptions.value.handleClear();
       }
+      emit("clear");
     };
     const valueIsEmpty = computed(() => {
       const { modelValue } = props;
@@ -28052,6 +28069,8 @@ var useCarousel = (props, emit, componentName2) => {
       activeIndex.value = activeIndex.value + 1;
     } else if (props.loop) {
       activeIndex.value = 0;
+    } else {
+      isTransitioning.value = false;
     }
   };
   function setActiveItem(index) {
@@ -30648,6 +30667,7 @@ var cascaderEmits = {
   [CHANGE_EVENT]: (_2) => true,
   focus: (evt) => evt instanceof FocusEvent,
   blur: (evt) => evt instanceof FocusEvent,
+  clear: () => true,
   visibleChange: (val) => isBoolean2(val),
   expandChange: (val) => !!val,
   removeTag: (val) => !!val
@@ -30940,6 +30960,7 @@ var _sfc_main45 = defineComponent({
         syncPresentTextValue();
       }
       togglePopperVisible(false);
+      emit("clear");
     };
     const syncPresentTextValue = () => {
       const { value } = presentText;
@@ -32187,7 +32208,7 @@ function _sfc_render5(_ctx, _cache, $props, $setup, $data, $options) {
 }
 var HueSlider = _export_sfc(_sfc_main53, [["render", _sfc_render5], ["__file", "hue-slider.vue"]]);
 
-// node_modules/element-plus/es/components/color-picker/src/color-picker2.mjs
+// node_modules/element-plus/es/components/color-picker/src/color-picker.mjs
 var colorPickerProps = buildProps({
   modelValue: String,
   id: String,
@@ -32689,7 +32710,7 @@ function _sfc_render7(_ctx, _cache, $props, $setup, $data, $options) {
 }
 var SvPanel = _export_sfc(_sfc_main55, [["render", _sfc_render7], ["__file", "sv-panel.vue"]]);
 
-// node_modules/element-plus/es/components/color-picker/src/color-picker.mjs
+// node_modules/element-plus/es/components/color-picker/src/color-picker2.mjs
 var _hoisted_123 = ["onKeydown"];
 var _hoisted_214 = ["id", "aria-label", "aria-labelledby", "aria-description", "aria-disabled", "tabindex"];
 var __default__44 = defineComponent({
@@ -39162,6 +39183,7 @@ var _sfc_main86 = defineComponent({
             "min-scale": _ctx.minScale,
             "max-scale": _ctx.maxScale,
             "url-list": _ctx.previewSrcList,
+            crossorigin: _ctx.crossorigin,
             "hide-on-click-modal": _ctx.hideOnClickModal,
             teleported: _ctx.previewTeleported,
             "close-on-press-escape": _ctx.closeOnPressEscape,
@@ -39174,7 +39196,7 @@ var _sfc_main86 = defineComponent({
               ])) : createCommentVNode("v-if", true)
             ]),
             _: 3
-          }, 8, ["z-index", "initial-index", "infinite", "zoom-rate", "min-scale", "max-scale", "url-list", "hide-on-click-modal", "teleported", "close-on-press-escape"])) : createCommentVNode("v-if", true)
+          }, 8, ["z-index", "initial-index", "infinite", "zoom-rate", "min-scale", "max-scale", "url-list", "crossorigin", "hide-on-click-modal", "teleported", "close-on-press-escape"])) : createCommentVNode("v-if", true)
         ], 64)) : createCommentVNode("v-if", true)
       ], 6);
     };
@@ -41869,6 +41891,7 @@ var SelectProps = buildProps({
     default: arrow_down_default
   },
   tagType: { ...tagProps.type, default: "info" },
+  tagEffect: { ...tagProps.effect, default: "light" },
   validateEvent: {
     type: Boolean,
     default: true
@@ -42004,6 +42027,7 @@ function _sfc_render22(_ctx, _cache, $props, $setup, $data, $options) {
                       closable: !_ctx.selectDisabled && !item.isDisabled,
                       size: _ctx.collapseTagSize,
                       type: _ctx.tagType,
+                      effect: _ctx.tagEffect,
                       "disable-transitions": "",
                       style: normalizeStyle(_ctx.tagStyle),
                       onClose: ($event) => _ctx.deleteTag($event, item)
@@ -42021,7 +42045,7 @@ function _sfc_render22(_ctx, _cache, $props, $setup, $data, $options) {
                         ], 2)
                       ]),
                       _: 2
-                    }, 1032, ["closable", "size", "type", "style", "onClose"])
+                    }, 1032, ["closable", "size", "type", "effect", "style", "onClose"])
                   ], 2);
                 }), 128)),
                 _ctx.collapseTags && _ctx.states.selected.length > _ctx.maxCollapseTags ? (openBlock(), createBlock(_component_el_tooltip, {
@@ -42042,6 +42066,7 @@ function _sfc_render22(_ctx, _cache, $props, $setup, $data, $options) {
                         closable: false,
                         size: _ctx.collapseTagSize,
                         type: _ctx.tagType,
+                        effect: _ctx.tagEffect,
                         "disable-transitions": "",
                         style: normalizeStyle(_ctx.collapseTagStyle)
                       }, {
@@ -42051,7 +42076,7 @@ function _sfc_render22(_ctx, _cache, $props, $setup, $data, $options) {
                           }, " + " + toDisplayString(_ctx.states.selected.length - _ctx.maxCollapseTags), 3)
                         ]),
                         _: 1
-                      }, 8, ["size", "type", "style"])
+                      }, 8, ["size", "type", "effect", "style"])
                     ], 2)
                   ]),
                   content: withCtx(() => [
@@ -42069,6 +42094,7 @@ function _sfc_render22(_ctx, _cache, $props, $setup, $data, $options) {
                             closable: !_ctx.selectDisabled && !item.isDisabled,
                             size: _ctx.collapseTagSize,
                             type: _ctx.tagType,
+                            effect: _ctx.tagEffect,
                             "disable-transitions": "",
                             onClose: ($event) => _ctx.deleteTag($event, item)
                           }, {
@@ -42085,7 +42111,7 @@ function _sfc_render22(_ctx, _cache, $props, $setup, $data, $options) {
                               ], 2)
                             ]),
                             _: 2
-                          }, 1032, ["closable", "size", "type", "onClose"])
+                          }, 1032, ["closable", "size", "type", "effect", "onClose"])
                         ], 2);
                       }), 128))
                     ], 2)
@@ -42835,7 +42861,10 @@ var Pagination = defineComponent({
     const { t } = useLocale();
     const ns = useNamespace("pagination");
     const vnodeProps = getCurrentInstance().vnode.props || {};
-    const _size = computed(() => props.small ? "small" : props == null ? void 0 : props.size);
+    const _size = computed(() => {
+      var _a2;
+      return props.small ? "small" : (_a2 = props.size) != null ? _a2 : useGlobalSize().value;
+    });
     useDeprecated({
       from: "small",
       replacement: "size",
@@ -46117,6 +46146,7 @@ var SelectProps2 = buildProps({
     default: ["bottom-start", "top-start", "right", "left"]
   },
   tagType: { ...tagProps.type, default: "info" },
+  tagEffect: { ...tagProps.effect, default: "light" },
   ...useEmptyValuesProps,
   ...useAriaProps(["ariaLabel"])
 });
@@ -47275,6 +47305,7 @@ function _sfc_render26(_ctx, _cache, $props, $setup, $data, $options) {
                     closable: !_ctx.selectDisabled && !_ctx.getDisabled(item),
                     size: _ctx.collapseTagSize,
                     type: _ctx.tagType,
+                    effect: _ctx.tagEffect,
                     "disable-transitions": "",
                     style: normalizeStyle(_ctx.tagStyle),
                     onClose: ($event) => _ctx.deleteTag($event, item)
@@ -47292,7 +47323,7 @@ function _sfc_render26(_ctx, _cache, $props, $setup, $data, $options) {
                       ], 2)
                     ]),
                     _: 2
-                  }, 1032, ["closable", "size", "type", "style", "onClose"])
+                  }, 1032, ["closable", "size", "type", "effect", "style", "onClose"])
                 ], 2);
               }), 128)),
               _ctx.collapseTags && _ctx.modelValue.length > _ctx.maxCollapseTags ? (openBlock(), createBlock(_component_el_tooltip, {
@@ -47313,6 +47344,7 @@ function _sfc_render26(_ctx, _cache, $props, $setup, $data, $options) {
                       closable: false,
                       size: _ctx.collapseTagSize,
                       type: _ctx.tagType,
+                      effect: _ctx.tagEffect,
                       style: normalizeStyle(_ctx.collapseTagStyle),
                       "disable-transitions": ""
                     }, {
@@ -47322,7 +47354,7 @@ function _sfc_render26(_ctx, _cache, $props, $setup, $data, $options) {
                         }, " + " + toDisplayString(_ctx.modelValue.length - _ctx.maxCollapseTags), 3)
                       ]),
                       _: 1
-                    }, 8, ["size", "type", "style"])
+                    }, 8, ["size", "type", "effect", "style"])
                   ], 2)
                 ]),
                 content: withCtx(() => [
@@ -47340,6 +47372,7 @@ function _sfc_render26(_ctx, _cache, $props, $setup, $data, $options) {
                           closable: !_ctx.selectDisabled && !_ctx.getDisabled(selected),
                           size: _ctx.collapseTagSize,
                           type: _ctx.tagType,
+                          effect: _ctx.tagEffect,
                           "disable-transitions": "",
                           onClose: ($event) => _ctx.deleteTag($event, selected)
                         }, {
@@ -47356,7 +47389,7 @@ function _sfc_render26(_ctx, _cache, $props, $setup, $data, $options) {
                             ], 2)
                           ]),
                           _: 2
-                        }, 1032, ["closable", "size", "type", "onClose"])
+                        }, 1032, ["closable", "size", "type", "effect", "onClose"])
                       ], 2);
                     }), 128))
                   ], 2)
@@ -57052,7 +57085,7 @@ var __default__87 = defineComponent({
 var _sfc_main125 = defineComponent({
   ...__default__87,
   props: timeSelectProps,
-  emits: ["change", "blur", "focus", "update:modelValue"],
+  emits: ["change", "blur", "focus", "clear", "update:modelValue"],
   setup(__props, { expose }) {
     const props = __props;
     import_dayjs16.default.extend(import_customParseFormat3.default);
@@ -57128,7 +57161,8 @@ var _sfc_main125 = defineComponent({
         "onUpdate:modelValue": _cache[0] || (_cache[0] = (event) => _ctx.$emit("update:modelValue", event)),
         onChange: _cache[1] || (_cache[1] = (event) => _ctx.$emit("change", event)),
         onBlur: _cache[2] || (_cache[2] = (event) => _ctx.$emit("blur", event)),
-        onFocus: _cache[3] || (_cache[3] = (event) => _ctx.$emit("focus", event))
+        onFocus: _cache[3] || (_cache[3] = (event) => _ctx.$emit("focus", event)),
+        onClear: _cache[4] || (_cache[4] = () => _ctx.$emit("clear"))
       }, {
         prefix: withCtx(() => [
           _ctx.prefixIcon ? (openBlock(), createBlock(unref(ElIcon), {
@@ -57548,7 +57582,7 @@ var _sfc_main128 = defineComponent({
 });
 var TooltipV2Arrow = _export_sfc(_sfc_main128, [["__file", "arrow.vue"]]);
 
-// node_modules/element-plus/es/components/visual-hidden/src/visual-hidden2.mjs
+// node_modules/element-plus/es/components/visual-hidden/src/visual-hidden.mjs
 var visualHiddenProps = buildProps({
   style: {
     type: definePropType([String, Object, Array]),
@@ -57556,7 +57590,7 @@ var visualHiddenProps = buildProps({
   }
 });
 
-// node_modules/element-plus/es/components/visual-hidden/src/visual-hidden.mjs
+// node_modules/element-plus/es/components/visual-hidden/src/visual-hidden2.mjs
 var __default__91 = defineComponent({
   name: "ElVisuallyHidden"
 });
@@ -60143,6 +60177,11 @@ var component = defineComponent({
         result2.select.onOptionCreate(vm);
       }
     });
+    watch(() => ctx.attrs.visible, (val) => {
+      result2.states.visible = val;
+    }, {
+      immediate: true
+    });
     return result2;
   },
   methods: {
@@ -60255,7 +60294,8 @@ var useTree2 = (props, { attrs, slots, emit }, {
       return h3(component, {
         value: getNodeValByProp("value", data),
         label: getNodeValByProp("label", data),
-        disabled: getNodeValByProp("disabled", data)
+        disabled: getNodeValByProp("disabled", data),
+        visible: node.visible
       }, props.renderContent ? () => props.renderContent(h3, { node, data, store }) : slots.default ? () => slots.default({ node, data, store }) : void 0);
     },
     filterNodeMethod: (value, data, node) => {
@@ -60338,7 +60378,7 @@ var CacheOptions = defineComponent({
         }
       });
       const inputs = ((_a2 = select.selectRef) == null ? void 0 : _a2.querySelectorAll("input")) || [];
-      if (!Array.from(inputs).includes(document.activeElement)) {
+      if (isClient && !Array.from(inputs).includes(document.activeElement)) {
         select.setSelected();
       }
     }, { flush: "post", immediate: true });
@@ -64912,6 +64952,8 @@ var _sfc_main154 = defineComponent({
       action: "",
       confirmButtonLoading: false,
       cancelButtonLoading: false,
+      confirmButtonLoadingIcon: loading_default,
+      cancelButtonLoadingIcon: loading_default,
       confirmButtonDisabled: false,
       editorErrorMessage: "",
       validateError: false,
@@ -65240,6 +65282,7 @@ function _sfc_render31(_ctx, _cache, $props, $setup, $data, $options) {
                     _ctx.showCancelButton ? (openBlock(), createBlock(_component_el_button, {
                       key: 0,
                       loading: _ctx.cancelButtonLoading,
+                      "loading-icon": _ctx.cancelButtonLoadingIcon,
                       class: normalizeClass([_ctx.cancelButtonClass]),
                       round: _ctx.roundButton,
                       size: _ctx.btnSize,
@@ -65250,11 +65293,12 @@ function _sfc_render31(_ctx, _cache, $props, $setup, $data, $options) {
                         createTextVNode(toDisplayString(_ctx.cancelButtonText || _ctx.t("el.messagebox.cancel")), 1)
                       ]),
                       _: 1
-                    }, 8, ["loading", "class", "round", "size"])) : createCommentVNode("v-if", true),
+                    }, 8, ["loading", "loading-icon", "class", "round", "size"])) : createCommentVNode("v-if", true),
                     withDirectives(createVNode(_component_el_button, {
                       ref: "confirmRef",
                       type: "primary",
                       loading: _ctx.confirmButtonLoading,
+                      "loading-icon": _ctx.confirmButtonLoadingIcon,
                       class: normalizeClass([_ctx.confirmButtonClasses]),
                       round: _ctx.roundButton,
                       disabled: _ctx.confirmButtonDisabled,
@@ -65266,7 +65310,7 @@ function _sfc_render31(_ctx, _cache, $props, $setup, $data, $options) {
                         createTextVNode(toDisplayString(_ctx.confirmButtonText || _ctx.t("el.messagebox.confirm")), 1)
                       ]),
                       _: 1
-                    }, 8, ["loading", "class", "round", "disabled", "size"]), [
+                    }, 8, ["loading", "loading-icon", "class", "round", "disabled", "size"]), [
                       [vShow, _ctx.showConfirmButton]
                     ])
                   ], 2)
@@ -66013,6 +66057,7 @@ export {
   elPaginationKey,
   emitChangeFn,
   emptyProps,
+  emptyValuesContextKey,
   extractDateFormat,
   extractTimeFormat,
   formContextKey,

@@ -7,6 +7,7 @@ export declare type FormItemProp = Arrayable<string>;
 export declare const formItemProps: {
     readonly label: StringConstructor;
     readonly labelWidth: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
+    readonly labelPosition: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "top" | "left" | "right", unknown, "", boolean>;
     readonly prop: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => FormItemProp & {}) | (() => FormItemProp) | ((new (...args: any[]) => FormItemProp & {}) | (() => FormItemProp))[], unknown, unknown>>;
         readonly required: false;

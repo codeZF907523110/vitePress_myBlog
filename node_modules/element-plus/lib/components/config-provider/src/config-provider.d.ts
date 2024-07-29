@@ -78,9 +78,9 @@ declare const ConfigProvider: import("vue").DefineComponent<{
     readonly namespace: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "el", boolean>;
 }>>, {
     readonly valueOnClear: import("../../../utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown>;
+    readonly namespace: string;
     readonly a11y: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly keyboardNavigation: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly namespace: string;
 }>;
 export declare type ConfigProviderInstance = InstanceType<typeof ConfigProvider>;
 export default ConfigProvider;

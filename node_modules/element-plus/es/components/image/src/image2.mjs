@@ -208,6 +208,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             "min-scale": _ctx.minScale,
             "max-scale": _ctx.maxScale,
             "url-list": _ctx.previewSrcList,
+            crossorigin: _ctx.crossorigin,
             "hide-on-click-modal": _ctx.hideOnClickModal,
             teleported: _ctx.previewTeleported,
             "close-on-press-escape": _ctx.closeOnPressEscape,
@@ -220,7 +221,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               ])) : createCommentVNode("v-if", true)
             ]),
             _: 3
-          }, 8, ["z-index", "initial-index", "infinite", "zoom-rate", "min-scale", "max-scale", "url-list", "hide-on-click-modal", "teleported", "close-on-press-escape"])) : createCommentVNode("v-if", true)
+          }, 8, ["z-index", "initial-index", "infinite", "zoom-rate", "min-scale", "max-scale", "url-list", "crossorigin", "hide-on-click-modal", "teleported", "close-on-press-escape"])) : createCommentVNode("v-if", true)
         ], 64)) : createCommentVNode("v-if", true)
       ], 6);
     };

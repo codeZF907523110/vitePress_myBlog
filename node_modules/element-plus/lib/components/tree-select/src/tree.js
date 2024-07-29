@@ -79,7 +79,8 @@ const useTree = (props, { attrs, slots, emit }, {
       return h(treeSelectOption["default"], {
         value: getNodeValByProp("value", data),
         label: getNodeValByProp("label", data),
-        disabled: getNodeValByProp("disabled", data)
+        disabled: getNodeValByProp("disabled", data),
+        visible: node.visible
       }, props.renderContent ? () => props.renderContent(h, { node, data, store }) : slots.default ? () => slots.default({ node, data, store }) : void 0);
     },
     filterNodeMethod: (value, data, node) => {

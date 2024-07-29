@@ -11,6 +11,7 @@ var index$1 = require('../../../../hooks/use-locale/index.js');
 var index$2 = require('../../../../hooks/use-z-index/index.js');
 var error = require('../../../../utils/error.js');
 var index$3 = require('../../../../hooks/use-size/index.js');
+var index$4 = require('../../../../hooks/use-empty-values/index.js');
 var objects = require('../../../../utils/objects.js');
 
 const globalConfig = vue.ref();
@@ -73,6 +74,10 @@ const provideGlobalConfig = (config, app, global = false) => {
   provideFn(index$3.SIZE_INJECTION_KEY, {
     size: vue.computed(() => context.value.size || "")
   });
+  provideFn(index$4.emptyValuesContextKey, vue.computed(() => ({
+    emptyValues: context.value.emptyValues,
+    valueOnClear: context.value.valueOnClear
+  })));
   if (global || !globalConfig.value) {
     globalConfig.value = context.value;
   }
