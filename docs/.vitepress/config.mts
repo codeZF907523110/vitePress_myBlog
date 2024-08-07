@@ -7,7 +7,7 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   title: "甜甜小破站",
   description: "A VitePress Site",
-  base: '/',
+  base: '/vitePress_myBlog',
   cleanUrls: true,
   metaChunk: true,
   vite: {
@@ -18,8 +18,6 @@ export default defineConfig({
       },
     },
     server: {
-      host: true,
-      cors: true,
       https: false,
     },
   },
@@ -34,7 +32,7 @@ export default defineConfig({
       level: 'deep'
     },
     logo: '/svg/blogLogo.svg',
-    logoLink: '/pages/home',
+    logoLink: '/vitePress_myBlog/pages/home',
     lastUpdated: true,
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
