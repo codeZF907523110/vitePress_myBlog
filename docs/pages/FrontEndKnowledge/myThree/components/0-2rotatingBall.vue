@@ -6,7 +6,7 @@
 import { ref, onMounted } from 'vue'
 import * as THREE from 'three'
 import world from '/image/world.png'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 onMounted(() => {
   const myCanvas: any = document.getElementById('myCanvas')
@@ -28,8 +28,8 @@ onMounted(() => {
   camera.lookAt(0, 0, 0)
 
   // // 创建控制器
-  const controls = new OrbitControls(camera, renderer.domElement)
-  controls.update()
+  // const controls = new OrbitControls(camera, renderer.domElement)
+  // controls.update()
 
   // 加一个光线凸显立体形状
   const light = new THREE.DirectionalLight('0xffffff', 1)
