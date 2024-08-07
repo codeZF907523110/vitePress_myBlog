@@ -4,16 +4,16 @@
 
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
-import * as THREE from 'three'
+import * as THREE111 from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 onMounted(() => {
   const myCanvas: any = document.getElementById('myCanvas')
   // 创建场景
-  const scence = new THREE.Scene()
+  const scence = new THREE111.Scene()
 
   // 创建渲染器
-  const renderer = new THREE.WebGLRenderer({
+  const renderer = new THREE111.WebGLRenderer({
     canvas: myCanvas
   })
   // 渲染器能够渲染阴影效果
@@ -22,7 +22,7 @@ onMounted(() => {
   renderer.shadowMap.enabled = true
 
   // 创建相机
-  const camera = new THREE.PerspectiveCamera(75, myCanvas.width / myCanvas.height, 0.1, 1000)
+  const camera = new THREE111.PerspectiveCamera(75, myCanvas.width / myCanvas.height, 0.1, 1000)
   camera.position.z = 200
   camera.lookAt(0, 0, 0)
 
@@ -30,38 +30,38 @@ onMounted(() => {
   controls.update()
 
   // 加一个光线凸显立体形状
-  const directionalLight = new THREE.DirectionalLight('0xffffff', 1)
+  const directionalLight = new THREE111.DirectionalLight('0xffffff', 1)
   directionalLight.position.set(0, 10, 4)
   directionalLight.intensity = 1
   directionalLight.castShadow = true
   scence.add(directionalLight)
 
-  const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight)
+  const directionalLightHelper = new THREE111.DirectionalLightHelper(directionalLight)
   scence.add(directionalLightHelper)
 
   // 创建平面
-  const planeGeometry = new THREE.PlaneGeometry(300, 300) // 生成平面几何
-  const planeMaterial = new THREE.MeshLambertMaterial({
+  const planeGeometry = new THREE111.PlaneGeometry(300, 300) // 生成平面几何
+  const planeMaterial = new THREE111.MeshLambertMaterial({
     // 生成材质
     color: '#fff'
   })
-  const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial) // 生成平面网格
+  const planeMesh = new THREE111.Mesh(planeGeometry, planeMaterial) // 生成平面网格
   planeMesh.receiveShadow = true // 设置平面网格为接受阴影的投影面
   planeMesh.rotation.x = -0.5 * Math.PI
   planeMesh.position.set(0, -40, 0)
   scence.add(planeMesh) // 添加到场景中
 
   // 加载贴图
-  const textureLoader = new THREE.TextureLoader()
+  const textureLoader = new THREE111.TextureLoader()
   textureLoader.load(jtt, (texture) => {
     // 创建球体
-    const geometry = new THREE.SphereGeometry(30)
+    const geometry = new THREE111.SphereGeometry(30)
     // 球体材质
-    const material = new THREE.MeshPhongMaterial({
+    const material = new THREE111.MeshPhongMaterial({
       // map: texture
     })
     // 球体模型
-    const mesh = new THREE.Mesh(geometry, material)
+    const mesh = new THREE111.Mesh(geometry, material)
     // 可以接收阴影
     mesh.receiveShadow = true
     // 模型可以产生阴影

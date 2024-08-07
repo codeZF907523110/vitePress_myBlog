@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { onMounted, onUnmounted } from 'vue'
-import * as THREE from 'three'
+import * as THREE111 from 'three'
 import petal0 from '/image/petal0.png'
 import petal1 from '/image/petal1.png'
 import petal2 from '/image/petal2.png'
@@ -16,11 +16,11 @@ onMounted(() => {
   const dom = document.createElement('div')
   dom.classList.add('petal-panel')
 
-  const scene = new THREE.Scene()
+  const scene = new THREE111.Scene()
   /**
    * 花瓣分组
    */
-  const petal = new THREE.Group()
+  const petal = new THREE111.Group()
 
   const width = window.innerWidth
   const height = window.innerHeight
@@ -29,11 +29,11 @@ onMounted(() => {
   //三维场景的显示的上下范围
   const s = 200
 
-  const camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 1000)
+  const camera = new THREE111.OrthographicCamera(-s * k, s * k, s, -s, 1, 1000)
   camera.position.set(0, 200, 500)
   camera.lookAt(0, 0, 0)
 
-  const renderer = new THREE.WebGLRenderer()
+  const renderer = new THREE111.WebGLRenderer()
   //设置渲染区域尺寸
   renderer.setSize(width, height)
   //设置背景颜色
@@ -42,20 +42,20 @@ onMounted(() => {
   dom.appendChild(renderer.domElement)
   document.body.appendChild(dom)
 
-  var textureTree0 = new THREE.TextureLoader().load(petal0)
-  var textureTree1 = new THREE.TextureLoader().load(petal1)
-  var textureTree2 = new THREE.TextureLoader().load(petal2)
-  var textureTree3 = new THREE.TextureLoader().load(petal3)
-  var textureTree4 = new THREE.TextureLoader().load(petal4)
-  var textureTree5 = new THREE.TextureLoader().load(petal5)
+  var textureTree0 = new THREE111.TextureLoader().load(petal0)
+  var textureTree1 = new THREE111.TextureLoader().load(petal1)
+  var textureTree2 = new THREE111.TextureLoader().load(petal2)
+  var textureTree3 = new THREE111.TextureLoader().load(petal3)
+  var textureTree4 = new THREE111.TextureLoader().load(petal4)
+  var textureTree5 = new THREE111.TextureLoader().load(petal5)
   var imageList = [textureTree0, textureTree1, textureTree2, textureTree3, textureTree4, textureTree5]
 
   for (let i = 0; i < 400; i++) {
-    var spriteMaterial = new THREE.SpriteMaterial({
+    var spriteMaterial = new THREE111.SpriteMaterial({
       rotation: Math.PI / 4,
       map: imageList[Math.floor(Math.random() * imageList.length)] //设置精灵纹理贴图
     })
-    var sprite = new THREE.Sprite(spriteMaterial)
+    var sprite = new THREE111.Sprite(spriteMaterial)
     sprite.scale.set(Math.floor(Math.random() * (40 - 15 + 1)) + 15, Math.floor(Math.random() * (40 - 15 + 1)) + 15, 1)
     sprite.position.set(Math.random() * 2000, Math.random() * 2000, 0)
     sprite.Incremental = 0.5 + Math.random() * 0.5 //自定义随机x轴速度

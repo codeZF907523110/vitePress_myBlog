@@ -16,7 +16,7 @@ three.js 被广泛应用于各种领域，如互动式可视化、游戏开发�
 
 ```js
 // 创建3D场景对象Scene
-const scence = new THREE.Scene()
+const scence = new THREE111.Scene()
 ```
 
 ## 3. 创建一个球体
@@ -27,13 +27,13 @@ const scence = new THREE.Scene()
 
 ```js
 //1. 球体形状
-const geometry = new THREE.SphereGeometry(50)
+const geometry = new THREE111.SphereGeometry(50)
 //2. 球体材质
-const material = new THREE.MeshBasicMaterial({
+const material = new THREE111.MeshBasicMaterial({
   color: 0x0000ff
 })
 //3. 球体模型Mesh
-const mesh = new THREE.Mesh(geometry, material)
+const mesh = new THREE111.Mesh(geometry, material)
 //4. 球体添加到虚拟场景中
 scene.add(mesh)
 ```
@@ -42,7 +42,7 @@ scene.add(mesh)
 
 ```js
 // 创建一个球体
-const geometry = new THREE.SphereGeometry(50)
+const geometry = new THREE111.SphereGeometry(50)
 ```
 
 > Three.js 提供了各种各样的几何体 API，用来表示三维物体的几何形状。
@@ -59,7 +59,7 @@ const geometry = new THREE.SphereGeometry(50)
 
 ```js
 //创建一个材质对象Material
-const material = new THREE.MeshBasicMaterial({
+const material = new THREE111.MeshBasicMaterial({
   color: 'pink'
 })
 ```
@@ -69,12 +69,12 @@ const material = new THREE.MeshBasicMaterial({
 > 实际生活中有各种各样的物体，在`threejs`中可以通过网格模型`Mesh (opens new window)`表示一个虚拟的物体，比如一个箱子、一个鼠标。
 
 ```js
-const geometry = new THREE.SphereGeometry(50)
-const material = new THREE.MeshBasicMaterial({
+const geometry = new THREE111.SphereGeometry(50)
+const material = new THREE111.MeshBasicMaterial({
   color: pink
 })
 // 两个参数分别为几何体geometry、材质material
-const mesh = new THREE.Mesh(geometry, material) //网格模型对象Mesh
+const mesh = new THREE111.Mesh(geometry, material) //网格模型对象Mesh
 ```
 
 ### 4) .add()方法
@@ -93,10 +93,10 @@ scene.add(mesh)
 
 ```js
 const geometry = new SphereGeometry(50)
-const meterial = new THREE.MeshBasicMaterial({
+const meterial = new THREE111.MeshBasicMaterial({
   color: 'pink'
 })
-const mesh = new THREE.Mesh(geometry, material) //网格模型对象Mesh
+const mesh = new THREE111.Mesh(geometry, material) //网格模型对象Mesh
 //设置网格模型在三维空间中的位置坐标，默认是坐标原点
 mesh.position.set(0, 200, 0) //y轴200位置
 mesh.position.set(200, 0, 0) //x轴200位置
@@ -112,7 +112,7 @@ mesh.position.set(200, 0, 0) //x轴200位置
 
 ```js
 // 实例化一个透视投影相机对象
-const camera = new THREE.PerspectiveCamera()
+const camera = new THREE111.PerspectiveCamera()
 ```
 
 ##### 相机位置`.position`
@@ -154,7 +154,7 @@ camera.lookAt(mesh.position) //指向mesh对应的位置
 ```js
 // PerspectiveCamera( fov, aspect, near, far )
 // 30:视场角度, width / height:Canvas画布宽高比, 1:近裁截面, 3000：远裁截面
-const camera = new THREE.PerspectiveCamera(30, canvas.width / canvas.height, 1, 3000)
+const camera = new THREE111.PerspectiveCamera(30, canvas.width / canvas.height, 1, 3000)
 ```
 
 - `PerspectiveCamera`参数介绍：
@@ -177,11 +177,11 @@ const camera = new THREE.PerspectiveCamera(30, canvas.width / canvas.height, 1, 
 
 ```js
 // 创建渲染器对象
-const renderer = new THREE.WebGLRenderer()
+const renderer = new THREE111.WebGLRenderer()
 // 获取canvas
 const canvas = document.getElementById('myCanvas')
 // 创建渲染器对象并关联canvas
-const render = new THREE.WebGLRenderer({
+const render = new THREE111.WebGLRenderer({
   canvas: canvas
 })
 ```
