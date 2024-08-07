@@ -7,7 +7,7 @@ hero:
   text: ''
   tagline: 在小小的代码里面挖呀挖呀挖！！！
   image:
-    # src: ../../assets/svg/blogLogo.svg
+    # src: /svg/blogLogo.svg
     alt: icenet
   actions:
     - theme: brand
@@ -36,3 +36,9 @@ features:
   - title: 关于我
     details: 个人信息、简历
 ---
+
+<homeFront />
+
+<script lang="ts" setup>
+import homeFront from './components/homeFront.vue'
+</script>

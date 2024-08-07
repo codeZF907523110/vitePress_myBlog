@@ -221,6 +221,10 @@ renderer.setClearColor(0x999999)
 
 > 看完以上基础知识我们来做一个小球吧
 
+> 运行以下代码后我们可以看到一个粉色的小球，但是由于我们的材质是不会反光的基础材质，所以看起来就是一个 2D 的圆
+
+::: details 代码
+
 ```vue
 <template>
   <canvas width="500" height="500" id="myCanvas"></canvas>
@@ -229,7 +233,7 @@ renderer.setClearColor(0x999999)
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import * as THREE from 'three'
-import jtt from '../../../../assets/image/jtt.jpg'
+import jtt from '/image/jtt.jpg'
 onMounted(() => {
   const myCanvas: any = document.getElementById('myCanvas')
   const scence = new THREE.Scene()
@@ -284,13 +288,22 @@ onMounted(() => {
 </style>
 ```
 
+:::
+
 <showRun>
   <template #svgCode>
     <RecognizeThree />
   </template>
 </showRun>
 
+<showRun>
+  <template #svgCode>
+    <rotatingBall />
+  </template>
+</showRun>
+
 <script lang="ts" setup>
 import showRun from '../../components/showRun.vue'
 import RecognizeThree from './components/0-1recognizeThree.vue'
+import rotatingBall from './components/0-2rotatingBall.vue'
 </script>

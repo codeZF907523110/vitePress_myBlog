@@ -11,12 +11,17 @@ export default defineConfig({
   cleanUrls: true,
   metaChunk: true,
   vite: {
-    // Vite 配置选项
+    // Vite 配置选项，告诉rollup是外部引入的
     build: {
       rollupOptions: {
         external: ['THREE'],
       },
-    }
+    },
+    server: {
+      headers: {
+        'Content-Security-Policy': 'img-src true', // 去掉 CSP 响应头
+      },
+    },
   },
   markdown: {
     theme: 'synthwave-84',
@@ -28,7 +33,7 @@ export default defineConfig({
       label: '页面导航',
       level: 'deep'
     },
-    logo: '/assets/svg/blogLogo.svg',
+    logo: '/svg/blogLogo.svg',
     logoLink: '/vitePress_myBlog/pages/home',
     lastUpdated: true,
     lightModeSwitchTitle: '切换到浅色模式',
