@@ -2,58 +2,67 @@
   "hash": "6e726f67",
   "configHash": "2813a213",
   "lockfileHash": "a2188a48",
-  "browserHash": "a4244a37",
+  "browserHash": "a65da058",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "eecbd96b",
+      "fileHash": "71540f31",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "54030c99",
+      "fileHash": "2cb24ad5",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/vitepress/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "c10c8c72",
+      "fileHash": "b4e55cfe",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "0ccc0cde",
+      "fileHash": "3fe8a9c8",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "dd2675cc",
+      "fileHash": "0d8b06f6",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "d66b65cb",
+      "fileHash": "02b10fa2",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "b6e0d80c",
+      "fileHash": "c0437e1c",
       "needsInterop": false
     },
     "three": {
       "src": "../../../../node_modules/three/build/three.module.js",
       "file": "three.js",
-      "fileHash": "3e2d4145",
+      "fileHash": "b8bb6cb5",
+      "needsInterop": false
+    },
+    "three/examples/jsm/controls/OrbitControls": {
+      "src": "../../../../node_modules/three/examples/jsm/controls/OrbitControls.js",
+      "file": "three_examples_jsm_controls_OrbitControls.js",
+      "fileHash": "5ce96d9c",
       "needsInterop": false
     }
   },
   "chunks": {
+    "chunk-NRCB5JQU": {
+      "file": "chunk-NRCB5JQU.js"
+    },
     "chunk-O3YQPVDG": {
       "file": "chunk-O3YQPVDG.js"
     },
