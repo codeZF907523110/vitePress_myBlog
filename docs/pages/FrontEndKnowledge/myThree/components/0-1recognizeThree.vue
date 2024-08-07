@@ -1,10 +1,12 @@
-<template>
+<!-- <template>
   <div id="myCanvas"></div>
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import * as THREE from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+
 onMounted(() => {
   const myCanvas: any = document.getElementById('myCanvas')
   // 创建场景
@@ -82,4 +84,4 @@ onMounted(() => {
     border: 1px solid pink;
   }
 }
-</style>
+</style> -->

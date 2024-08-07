@@ -221,80 +221,7 @@ renderer.setClearColor(0x999999)
 
 > 看完以上基础知识我们来做一个小球吧
 
-> 运行以下代码后我们可以看到一个粉色的小球，但是由于我们的材质是不会反光的基础材质，所以看起来就是一个 2D 的圆
-
-::: details 代码
-
-```vue
-<template>
-  <canvas width="500" height="500" id="myCanvas"></canvas>
-</template>
-
-<script lang="ts" setup>
-import { ref, onMounted } from 'vue'
-import * as THREE from 'three'
-import jtt from '/image/jtt.jpg'
-onMounted(() => {
-  const myCanvas: any = document.getElementById('myCanvas')
-  const scence = new THREE.Scene()
-  // 创建球体
-  const geometry = new THREE.SphereGeometry(100)
-
-  // 加一个光线凸显立体形状
-  // const directionalLight = new THREE.DirectionalLight(0xffffff, 3.0)
-  // directionalLight.position.set(80, 100, 50)
-  // scence.add(directionalLight)
-  // directionalLight.intensity = 5
-
-  // 加载贴图
-  const textureLoader = new THREE.TextureLoader()
-  const texture = textureLoader.load(jtt, () => {
-    // 球体材质
-
-    const material = new THREE.MeshBasicMaterial({
-      map: texture
-    })
-
-    // 球体模型
-    const mesh = new THREE.Mesh(geometry, material)
-
-    scence.add(mesh)
-
-    // 创建相机
-    const camera = new THREE.PerspectiveCamera(75, myCanvas.width / myCanvas.height, 0.1, 1000)
-    camera.position.z = 200
-
-    // 创建渲染器
-    const renderer = new THREE.WebGLRenderer({
-      canvas: myCanvas
-    })
-    renderer.setSize(myCanvas.width, myCanvas.height)
-    renderer.setClearColor('#fff')
-
-    const render = () => {
-      renderer.render(scence, camera)
-      mesh.rotateY(0.01)
-      requestAnimationFrame(render)
-    }
-    render()
-  })
-})
-</script>
-
-<style lang="less" scoped>
-#myCanvas {
-  border: 1px solid pink;
-}
-</style>
-```
-
-:::
-
-<showRun>
-  <template #svgCode>
-    <RecognizeThree />
-  </template>
-</showRun>
+> 运行以下代码后我们可以看到一个转动的地球
 
 <showRun>
   <template #svgCode>
@@ -304,6 +231,5 @@ onMounted(() => {
 
 <script lang="ts" setup>
 import showRun from '../../components/showRun.vue'
-import RecognizeThree from './components/0-1recognizeThree.vue'
 import rotatingBall from './components/0-2rotatingBall.vue'
 </script>
