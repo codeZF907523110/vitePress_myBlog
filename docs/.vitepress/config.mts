@@ -11,12 +11,10 @@ export default defineConfig({
   cleanUrls: true,
   metaChunk: true,
   vite: {
-    base: '/',
-    publicDir: 'public',
     // Vite 配置选项，告诉rollup是外部引入的
     build: {
       rollupOptions: {
-        external: [/^three/],
+        external: ['THREE'],
       },
     },
     server: {
