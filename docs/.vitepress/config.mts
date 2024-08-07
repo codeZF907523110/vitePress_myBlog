@@ -7,20 +7,22 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   title: "甜甜小破站",
   description: "A VitePress Site",
-  base: '/vitePress_myBlog',
+  base: '/',
   cleanUrls: true,
   metaChunk: true,
   vite: {
+    base: '/',
+    publicDir: 'public',
     // Vite 配置选项，告诉rollup是外部引入的
     build: {
       rollupOptions: {
-        external: ['THREE', 'OrbitControls'],
+        external: [/node_modules/],
       },
     },
     server: {
-      headers: {
-        'Content-Security-Policy': 'img-src true', // 去掉 CSP 响应头
-      },
+      host: true,
+      cors: true,
+      https: false,
     },
   },
   markdown: {
@@ -34,7 +36,7 @@ export default defineConfig({
       level: 'deep'
     },
     logo: '/svg/blogLogo.svg',
-    logoLink: '/vitePress_myBlog/pages/home',
+    logoLink: '/pages/home',
     lastUpdated: true,
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
