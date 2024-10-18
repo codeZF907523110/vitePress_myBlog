@@ -1,26 +1,18 @@
 import { defineConfig } from 'vitepress'
 import svgSidebar from './sidebars/svg'
 import threeJs from './sidebars/threeJs'
+import learningRecord from './sidebars/learningRecord'
+import viteConfig from './vite.config.js'
 
 export default defineConfig({
   lang: 'zh-Hans',
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
-  title: "甜甜小破站",
-  description: "A VitePress Site",
+  title: '甜甜小破站',
+  description: 'A VitePress Site',
   base: '/vitePress_myBlog',
   cleanUrls: true,
   metaChunk: true,
-  vite: {
-    // Vite 配置选项，告诉rollup是外部引入的
-    build: {
-      rollupOptions: {
-        external: ['THREE']
-      },
-    },
-    server: {
-      https: false,
-    },
-  },
+  vite: viteConfig,
   markdown: {
     theme: 'synthwave-84',
     lineNumbers: true
@@ -45,9 +37,24 @@ export default defineConfig({
     },
     nav: [
       { text: '主页', link: 'pages/home' },
-      { text: '前端',  items: [
-          { text: 'svg', link: 'pages/FrontEndKnowledge/mySvg/introduction', activeMatch: '/pages/FrontEndKnowledge/mySvg/' },
-          { text: 'three.js', link: 'pages/FrontEndKnowledge/myThree/0-1初识Three', activeMatch: '/pages/FrontEndKnowledge/myThree/' }
+      {
+        text: '学习笔记',
+        items: [
+          {
+            text: 'svg',
+            link: 'pages/FrontEndKnowledge/mySvg/introduction',
+            activeMatch: '/pages/FrontEndKnowledge/mySvg/'
+          },
+          {
+            text: 'three.js',
+            link: 'pages/FrontEndKnowledge/myThree/0-1初识Three',
+            activeMatch: '/pages/FrontEndKnowledge/myThree/'
+          },
+          {
+            text: '问题记录',
+            link: 'pages/FrontEndKnowledge/learningRecord/learningRecordHome',
+            activeMatch: '/pages/FrontEndKnowledge/learningRecord/'
+          }
         ],
         activeMatch: '/pages/FrontEndKnowledge/mySvg/'
       },
@@ -56,6 +63,7 @@ export default defineConfig({
     sidebar: {
       ...svgSidebar,
       ...threeJs,
+      ...learningRecord,
       'pages/myInfo': [
         {
           text: '关于我'
@@ -66,8 +74,6 @@ export default defineConfig({
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2019-present Evan You'
     },
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }]
   }
 })

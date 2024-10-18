@@ -2,8 +2,6 @@
   主题变量样式修改
 **/
 :root {
-  // --vp-code-bg: #eef0f4;
-  // --vp-code-color: #555666;
   ul li::marker {
     color: rgb(255, 104, 129)!important;
   }
@@ -35,6 +33,9 @@
   .vp-doc [class*='language-'] pre::-webkit-scrollbar-thumb {
     background: #404040;
   }
+  .VPNav {
+
+  }
 }
 .outline-link:hover {
   color: #42b883!important;
@@ -43,26 +44,17 @@
   color: #42b883!important;
 }
  
-/** 
-  顶部导航模块样式修改
-**/
-pre, code {
-  // line-height: 35px;
-}
 code {
-  // color: #333!important;
   font-family: '微软雅黑';
 }
-  // .menu-text::after {
-  //   content: '当前页';
-  // }
-  // .outline-title::after {
-  //   content: '当前页';
-  // }
+
 .container {
-  // color: red!important;
-  .details {
-    // color: rgb(255, 55, 0)
+  max-width: 100%!important;
+  padding: 0!important;
+  .content {
+    li::marker {
+      color: #ff6881!important;
+    }
   }
   .VPButton.brand {
     background: rgb(191, 0, 255);
