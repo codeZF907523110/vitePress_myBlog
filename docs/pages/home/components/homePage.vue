@@ -1,14 +1,15 @@
 <template>
   <div class="home-page">
     <div class="home-banner">
+      <img :src="bannerBackImg" alt="" />
+      <div class="banner-mask"></div>
       <div class="banner-text">
-        <img :src="bannerBackImg" alt="" />
-        <div class="banner-mask"></div>
         <div class="banner-title">
           {{ bannerText }}
           <span class="cursor-span">_</span>
         </div>
       </div>
+      <div></div>
     </div>
     <div class="home-content">哈哈哈哈</div>
   </div>
@@ -25,20 +26,18 @@ const typewriter = (str: string) => {
     strList.length && (bannerText.value += strList.shift())
   }, 200)
 }
-typewriter('欢迎来到阿峰的小破站😁')
+typewriter('欢迎来到阿峰的小破站')
 </script>
 
 <style lang="less" scoped>
 .home-page {
   .home-banner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: auto;
-    width: 100vw;
-    float: left;
+    height: 100vh;
+    overflow: hidden;
     img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .banner-mask {
       width: 100%;
@@ -47,22 +46,19 @@ typewriter('欢迎来到阿峰的小破站😁')
       top: 0;
       left: 0;
       background-color: #000;
-      opacity: 0.7;
+      opacity: 0.5;
     }
     .banner-text {
       position: absolute;
-      left: 0;
       top: 0;
+      left: 0;
+      transform: translate(-50% -50%);
       width: 100%;
-      z-index: 1;
-      float: left;
-      // background: url(../../../public/image/bannerBackImg.jpg) no-repeat;
-      // background-size: 100% auto;
+      height: 100%;
+      background: url(../../../public/image/bannerBackImg1.jpg) no-repeat center/cover;
+      background-size: auto 100vh;
+      background-clip: text;
       .banner-title {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
         width: 100%;
         height: 100%;
         text-align: center;
@@ -71,9 +67,6 @@ typewriter('欢迎来到阿峰的小破站😁')
         font-weight: bold;
         color: transparent;
         -webkit-text-stroke: 1px #fff;
-        background: url(../../../public/image/bannerBackImg1.jpg) no-repeat;
-        background-size: 100% auto;
-        background-clip: text;
         z-index: 2;
         cursor: pointer;
         .cursor-span {

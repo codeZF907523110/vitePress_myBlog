@@ -51,7 +51,7 @@ export default defineConfig({
             activeMatch: '/pages/FrontEndKnowledge/myThree/'
           },
           {
-            text: '问题记录',
+            text: '每日记录',
             link: 'pages/FrontEndKnowledge/learningRecord/learningRecordHome',
             activeMatch: '/pages/FrontEndKnowledge/learningRecord/'
           }
