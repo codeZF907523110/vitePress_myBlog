@@ -6,7 +6,8 @@ export default {
       items: [
         { text: '首页', link: '/pages/FrontEndKnowledge/learningRecord/learningRecordHome' },
         { text: '2024-10-18', link: '/pages/FrontEndKnowledge/learningRecord/2024_10_18' },
-        { text: '2024-10-20', link: '/pages/FrontEndKnowledge/learningRecord/2024_10_20' }
+        { text: '2024-10-20', link: '/pages/FrontEndKnowledge/learningRecord/2024_10_20' },
+        { text: '2024-10-21', link: '/pages/FrontEndKnowledge/learningRecord/2024_10_21' }
       ]
     }
   ]

@@ -32,6 +32,7 @@ typewriter('欢迎来到阿峰的小破站')
 <style lang="less" scoped>
 .home-page {
   .home-banner {
+    width: 100%;
     height: 100vh;
     overflow: hidden;
     img {
@@ -52,9 +53,8 @@ typewriter('欢迎来到阿峰的小破站')
       position: absolute;
       top: 0;
       left: 0;
-      transform: translate(-50% -50%);
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       background: url(../../../public/image/bannerBackImg1.jpg) no-repeat center/cover;
       background-size: auto 100vh;
       background-clip: text;
