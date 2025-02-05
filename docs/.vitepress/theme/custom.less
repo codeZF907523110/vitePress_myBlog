@@ -3,13 +3,12 @@
 **/
 :root {
   width: 100vw;
-  // overflow: hidden;
   ul li::marker {
-    color: rgb(255, 104, 129)!important;
+    color: rgb(255, 104, 129) !important;
   }
-  --vp-c-brand-1: #42b883!important;
+  --vp-c-brand-1: #42b883 !important;
   .vp-doc :not(pre) > code {
-    color: #FF8380!important;
+    color: #ff8380 !important;
   }
   .common-image {
     width: 60%;
@@ -18,16 +17,16 @@
     transform: translateX(-50%);
   }
   .vp-doc div[class*='language-'].line-numbers-mode {
-    background-color: #282c34!important;
+    background-color: #282c34 !important;
     button {
-      background-color: #282c34!important;
+      background-color: #282c34 !important;
     }
   }
   .vp-doc [class*='language-'] > span.lang {
-    color: #ADB1C2!important;
+    color: #adb1c2 !important;
   }
   .vp-doc .line-numbers-wrapper {
-    color: #ADB1C2!important;
+    color: #adb1c2 !important;
   }
   .vp-doc [class*='language-'] pre::-webkit-scrollbar {
     background-color: #f1f1f1;
@@ -36,26 +35,21 @@
     background: #404040;
   }
   .VPNav {
-
   }
 }
 .outline-link:hover {
-  color: #42b883!important;
+  color: #42b883 !important;
 }
 .outline-link.active {
-  color: #42b883!important;
-}
- 
-code {
-  font-family: '微软雅黑';
+  color: #42b883 !important;
 }
 
 .container {
-  max-width: 100%!important;
-  padding: 0!important;
+  max-width: 100% !important;
+  padding: 0 !important;
   .content {
     li::marker {
-      color: #ff6881!important;
+      color: #ff6881 !important;
     }
   }
   .VPButton.brand {
@@ -63,8 +57,8 @@ code {
   }
   .clip {
     background: linear-gradient(to bottom right, #00b7ff, #f700ff); /*设置渐变的方向从左到右 颜色从ff0000到ffff00*/
-    -webkit-background-clip: text;/*将设置的背景颜色限制在文字中*/
-    -webkit-text-fill-color: transparent;/*给文字设置成透明*/
+    -webkit-background-clip: text; /*将设置的背景颜色限制在文字中*/
+    -webkit-text-fill-color: transparent; /*给文字设置成透明*/
   }
   .VPFeature.link:hover {
     border: 1px solid rgb(255, 196, 0);
@@ -81,7 +75,7 @@ code {
     background-color: #fff;
     border-bottom: 1px solid rgba(60, 60, 67, 0.13);
   }
-  .VPNavBar.has-sidebar{
+  .VPNavBar.has-sidebar {
     .curtain {
       bottom: -30px !important;
       /* 导航的底部边框不显示问题修改 */
@@ -94,12 +88,15 @@ code {
     height: 40px;
   }
 }
- 
+
 /**
   内容模块样式修改
 **/
- 
+
 .VPContent {
+  font-family: '微软雅黑';
+  color: #000;
+  font-weight: bold !important;
   .VPDoc {
     padding-left: 0 !important;
   }
@@ -112,8 +109,7 @@ code {
     font-size: 46px !important;
   }
 }
- 
- 
+
 /**
   暗黑模式样式修改
 **/

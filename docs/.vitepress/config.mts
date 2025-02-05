@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import svgSidebar from './sidebars/svg'
 import threeJs from './sidebars/threeJs'
 import learningRecord from './sidebars/learningRecord'
+import writtenQuestion from './sidebars/writtenQuestion'
 import viteConfig from './vite.config.js'
 
 export default defineConfig({
@@ -38,7 +39,7 @@ export default defineConfig({
     nav: [
       { text: '主页', link: 'pages/home' },
       {
-        text: '学习笔记',
+        text: '前端学习笔记',
         items: [
           {
             text: 'svg',
@@ -54,6 +55,11 @@ export default defineConfig({
             text: '每日记录',
             link: 'pages/FrontEndKnowledge/learningRecord/learningRecordHome',
             activeMatch: '/pages/FrontEndKnowledge/learningRecord/'
+          },
+          {
+            text: '前端常见手写题',
+            link: 'pages/FrontEndKnowledge/writtenQuestion/01_手写Promise的API',
+            activeMatch: '/pages/FrontEndKnowledge/writtenQuestion/'
           }
         ],
         activeMatch: '/pages/FrontEndKnowledge/mySvg/'
@@ -64,6 +70,7 @@ export default defineConfig({
       ...svgSidebar,
       ...threeJs,
       ...learningRecord,
+      ...writtenQuestion,
       'pages/myInfo': [
         {
           text: '关于我'
