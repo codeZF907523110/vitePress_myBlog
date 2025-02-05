@@ -1,7 +1,10 @@
 import { defineConfig } from 'vitepress'
-import { svgSidebar, threeJs, learningRecord } from './sidebars/frontEndKnowledge'
-import { reactSidebar } from './sidebars/faceClassic'
+import svgSidebar from './sidebars/frontEndKnowledge/svg'
+import threeJs from './sidebars/frontEndKnowledge/threeJs'
+import learningRecord from './sidebars/frontEndKnowledge/learningRecord'
+import writtenQuestion from './sidebars/frontEndKnowledge/writtenQuestion.ts'
 import viteConfig from './vite.config.js'
+import { reactSidebar } from './sidebars/faceClassic'
 
 export default defineConfig({
   lang: 'zh-Hans',
@@ -24,7 +27,9 @@ export default defineConfig({
     },
     logo: '/svg/blogLogo.svg',
     logoLink: '/pages/home',
-    lastUpdated: true,
+    lastUpdated: {
+      text: '最后更新时间'
+    },
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
     docFooter: {
@@ -37,7 +42,7 @@ export default defineConfig({
     nav: [
       { text: '主页', link: 'pages/home' },
       {
-        text: '学习笔记',
+        text: '前端学习笔记',
         items: [
           {
             text: 'svg',
@@ -51,8 +56,13 @@ export default defineConfig({
           },
           {
             text: '每日记录',
-            link: 'pages/frontEndKnowledge/learningRecord/learningRecordHome',
-            activeMatch: '/pages/frontEndKnowledge/learningRecord/'
+            link: 'pages/FrontEndKnowledge/learningRecord/learningRecordHome',
+            activeMatch: '/pages/FrontEndKnowledge/learningRecord/'
+          },
+          {
+            text: '前端常见手写题',
+            link: 'pages/FrontEndKnowledge/writtenQuestion/01_手写Promise的API',
+            activeMatch: '/pages/FrontEndKnowledge/writtenQuestion/'
           }
         ],
         activeMatch: '/pages/frontEndKnowledge'
@@ -74,6 +84,7 @@ export default defineConfig({
       ...svgSidebar,
       ...threeJs,
       ...learningRecord,
+      ...writtenQuestion,
       ...reactSidebar,
       'pages/myInfo': [
         {
