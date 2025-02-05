@@ -11,13 +11,13 @@
       </div>
       <div></div>
     </div>
-    <div class="home-content">哈哈哈哈</div>
+    <!-- <div class="home-content">哈哈哈哈</div> -->
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import bannerBackImg from '/image/bannerBackImg1.jpg'
+import bannerBackImg from '../../../public/image/BlogBackGround.jpg'
 const bannerText = ref<string>('')
 
 const typewriter = (str: string) => {
@@ -32,7 +32,7 @@ typewriter('欢迎来到阿峰的小破站')
 <style lang="less" scoped>
 .home-page {
   .home-banner {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
     img {
@@ -54,9 +54,8 @@ typewriter('欢迎来到阿峰的小破站')
       top: 0;
       left: 0;
       width: 100vw;
-      height: 100vh;
-      background: url(../../../public/image/bannerBackImg1.jpg) no-repeat center/cover;
-      background-size: auto 100vh;
+      height: 100%;
+      background: url(../../../public/image/BlogBackGround.jpg) no-repeat center/cover;
       background-clip: text;
       .banner-title {
         width: 100%;

@@ -1,7 +1,6 @@
 import { defineConfig } from 'vitepress'
-import svgSidebar from './sidebars/svg'
-import threeJs from './sidebars/threeJs'
-import learningRecord from './sidebars/learningRecord'
+import { svgSidebar, threeJs, learningRecord } from './sidebars/frontEndKnowledge'
+import { reactSidebar } from './sidebars/faceClassic'
 import viteConfig from './vite.config.js'
 
 export default defineConfig({
@@ -9,13 +8,13 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   title: '甜甜小破站',
   description: 'A VitePress Site',
-  base: '/vitePress_myBlog',
+  base: '/',
   cleanUrls: true,
   metaChunk: true,
   vite: viteConfig,
   markdown: {
-    theme: 'synthwave-84',
-    lineNumbers: true
+    theme: 'dark-plus', // markdown代码主题
+    lineNumbers: true // 代码是否展示行序号
   },
   themeConfig: {
     lastUpdatedText: '最后更新时间：',
@@ -24,7 +23,7 @@ export default defineConfig({
       level: 'deep'
     },
     logo: '/svg/blogLogo.svg',
-    logoLink: '/vitePress_myBlog/pages/home',
+    logoLink: '/pages/home',
     lastUpdated: true,
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
@@ -42,21 +41,32 @@ export default defineConfig({
         items: [
           {
             text: 'svg',
-            link: 'pages/FrontEndKnowledge/mySvg/introduction',
-            activeMatch: '/pages/FrontEndKnowledge/mySvg/'
+            link: 'pages/frontEndKnowledge/mySvg/introduction',
+            activeMatch: '/pages/frontEndKnowledge/mySvg/'
           },
           {
             text: 'three.js',
-            link: 'pages/FrontEndKnowledge/myThree/0-1初识Three',
-            activeMatch: '/pages/FrontEndKnowledge/myThree/'
+            link: 'pages/frontEndKnowledge/myThree/0-1初识Three',
+            activeMatch: '/pages/frontEndKnowledge/myThree/'
           },
           {
             text: '每日记录',
-            link: 'pages/FrontEndKnowledge/learningRecord/learningRecordHome',
-            activeMatch: '/pages/FrontEndKnowledge/learningRecord/'
+            link: 'pages/frontEndKnowledge/learningRecord/learningRecordHome',
+            activeMatch: '/pages/frontEndKnowledge/learningRecord/'
           }
         ],
-        activeMatch: '/pages/FrontEndKnowledge/mySvg/'
+        activeMatch: '/pages/frontEndKnowledge'
+      },
+      {
+        text: '前端面经记录',
+        items: [
+          {
+            text: 'React',
+            link: 'pages/faceClassic/react/index',
+            activeMatch: '/pages/faceClassic/react'
+          }
+        ],
+        activeMatch: '/pages/faceClassic/'
       },
       { text: '关于我', link: 'pages/myInfo' }
     ],
@@ -64,6 +74,7 @@ export default defineConfig({
       ...svgSidebar,
       ...threeJs,
       ...learningRecord,
+      ...reactSidebar,
       'pages/myInfo': [
         {
           text: '关于我'

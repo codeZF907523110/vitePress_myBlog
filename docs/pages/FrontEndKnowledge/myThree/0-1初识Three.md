@@ -231,5 +231,5 @@ renderer.setClearColor(0x999999)
 
 <script lang="ts" setup>
 import showRun from '../../components/showRun.vue'
-import rotatingBall from './components/0-2rotatingBall.vue'
+import rotatingBall from './components/rotatingBall.vue'
 </script>
