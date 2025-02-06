@@ -5,7 +5,7 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import * as THREE from 'three'
-import world from '/image/world.png'
+import world from '../../../../public/image/BlogBackGround.jpg'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 onMounted(() => {

@@ -13,7 +13,6 @@ onMounted(() => {
   spiderManAction.init(canvasDom)
   spiderManAction.onAction()
 })
-
 </script>
 
 <style lang="less" scoped>

@@ -1,6 +1,4 @@
 import * as THREE from 'three'
-import { onMounted, ref, shallowRef } from 'vue'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import type { AnimationAction, AnimationMixer, Clock, WebGLRenderer } from 'three'
 
@@ -8,13 +6,13 @@ class SpiderManAction {
   // 渲染器
   public renderer: WebGLRenderer
   // 蜘蛛侠动画编号
-  public spiderManAnimationNo: number
+  public spiderManAnimationNo: number | undefined
   // 场景
   public scene = new THREE.Scene()
   // 蜘蛛侠gltf模型
   public spiderManGltf
   // 地图模型
-  public cityGltf
+  public cityGltf: any
   // 是否开始跑了
   public isRun: boolean = false
   // 动画播放器
@@ -24,19 +22,18 @@ class SpiderManAction {
   // 动画计时器
   public clock: Clock
   //
-  public frameT: number
+  public frameT: number | undefined
   // 动画id
-  public requestAnimationFrameId: number
+  public requestAnimationFrameId: number | undefined
   // 相机控制器
-  public controls
+  public controls: any
   // 相机
-  public camera
+  public camera: any
 
-  
   private keys: { [key: string]: boolean } = {}
 
   // canvasDom
-  private canvasDom: HTMLCanvasElement
+  private canvasDom: HTMLCanvasElement | undefined
 
   init = (canvasDom: HTMLCanvasElement) => {
     this.canvasDom = canvasDom
@@ -91,11 +88,11 @@ class SpiderManAction {
     loader.setPath('../../../../public/3DModule/')
 
     // 地图
-    loader.load('ccity_building_set/scene.gltf', (gltf) => {
+    loader.load('ccity_building_set/scene.gltf', (gltf: any) => {
       gltf.scene.castShadow = true
       gltf.scene.receiveShadow = true
       this.cityGltf = gltf
-      gltf.scene.traverse((obj) => {
+      gltf.scene.traverse((obj: any) => {
         obj.castShadow = true
         obj.receiveShadow = true
         for (const item of obj.children) {
@@ -110,7 +107,7 @@ class SpiderManAction {
     })
 
     // 蜘蛛侠
-    loader.load('spider-man_nwh/scene.gltf', (gltf) => {
+    loader.load('spider-man_nwh/scene.gltf', (gltf: any) => {
       this.spiderManGltf = gltf
       this.spiderManGltf.scene.scale.set(20, 20, 20)
       this.spiderManGltf.scene.castShadow = true
@@ -118,7 +115,7 @@ class SpiderManAction {
       this.spiderManGltf.scene.add(this.camera)
       this.spiderManGltf.scene.position.set(0, 20, 0)
       this.camera.lookAt(gltf.scene.position.x, gltf.scene.position.y + 50, gltf.scene.position.z)
-      this.spiderManGltf.scene.traverse((obj) => {
+      this.spiderManGltf.scene.traverse((obj: any) => {
         obj.castShadow = true
         obj.receiveShadow = true
         for (const item of obj.children) {

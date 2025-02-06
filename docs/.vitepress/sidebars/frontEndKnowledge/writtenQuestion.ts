@@ -37,6 +37,14 @@ export default {
         {
           text: '10_深度优先遍历(DFS)和广度优先遍历(BFS)',
           link: '/pages/frontEndKnowledge/writtenQuestion/10_深度优先遍历(DFS)和广度优先遍历(BFS)'
+        },
+        {
+          text: '11_用setTimeout实现setInterval',
+          link: '/pages/frontEndKnowledge/writtenQuestion/11_用setTimeout实现setInterval'
+        },
+        {
+          text: '12_如何实现一个EventEmitter',
+          link: '/pages/frontEndKnowledge/writtenQuestion/12_如何实现一个EventEmitter'
         }
       ]
     }
