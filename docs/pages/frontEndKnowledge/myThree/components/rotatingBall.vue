@@ -27,7 +27,7 @@ onMounted(() => {
   camera.position.set(5, 5, 5)
   camera.lookAt(0, 0, 0)
 
-  // // 创建控制器
+  // 创建控制器
   const controls = new OrbitControls(camera, renderer.domElement)
   controls.update()
 

@@ -3,6 +3,7 @@ import svgSidebar from './sidebars/frontEndKnowledge/svg'
 import threeJs from './sidebars/frontEndKnowledge/threeJs'
 import learningRecord from './sidebars/frontEndKnowledge/learningRecord'
 import writtenQuestion from './sidebars/frontEndKnowledge/writtenQuestion.ts'
+import myWebgl from './sidebars/frontEndKnowledge/webgl'
 import viteConfig from './vite.config.js'
 import { reactSidebar } from './sidebars/faceClassic'
 
@@ -50,6 +51,11 @@ export default defineConfig({
             activeMatch: '/pages/frontEndKnowledge/mySvg/'
           },
           {
+            text: 'webgl',
+            link: 'pages/frontEndKnowledge/myWebgl/01_初识Webgl',
+            activeMatch: '/pages/frontEndKnowledge/myWebgl/'
+          },
+          {
             text: 'three.js',
             link: 'pages/frontEndKnowledge/myThree/0-1初识Three',
             activeMatch: '/pages/frontEndKnowledge/myThree/'
@@ -82,6 +88,7 @@ export default defineConfig({
     ],
     sidebar: {
       ...svgSidebar,
+      ...myWebgl,
       ...threeJs,
       ...learningRecord,
       ...writtenQuestion,
