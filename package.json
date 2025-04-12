@@ -1,4 +1,7 @@
 {
+  "name": "zf_vitepress_blog",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
