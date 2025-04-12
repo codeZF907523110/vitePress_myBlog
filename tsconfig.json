@@ -1,0 +1,47 @@
+{
+  // 需要进行检测的包含的文件
+  "include": ["**/*.js","**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.vue", "node_modules/*"],
+  "compilerOptions": {
+    "noImplicitAny": false,
+    // 指定根路径
+    "baseUrl": ".",
+    // 指定 ECMAScript 目标版本: 'ES3' (default), 'ES5', 'ES6'/'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
+    "target": "ES5",
+    // 所有的字段声明都会生效，即使它没有指定默认值
+    "useDefineForClassFields": true,
+    // 指定使用模块
+    "module": "ESNext",
+    // 选择模块解析策略： 'node' (Node.js) or 'classic' (TypeScript pre-1.6)
+    "moduleResolution": "Node",
+    // 启用所有严格类型检查选项
+    "strict": true,
+    // 指定 jsx 代码的生成: 'preserve', 'react-native', or 'react'
+    "jsx": "preserve",
+    // 支持直接引用 json 文件
+    "resolveJsonModule": true,
+    // 支持使用import d from 'cjs'的方式引入 commonjs 包
+    "esModuleInterop": true,
+    // 指定要包含在编译中的库文件
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    // 不检查包依赖内部的类型
+    "skipLibCheck": true,
+    // 不生成类型输出文件
+    "noEmit": true,
+    // 允许从没有设置默认导出的模块中默认导入
+    "allowSyntheticDefaultImports": true,
+    // 引入类型使用 `import type` 而不是 `import`
+    "verbatimModuleSyntax": true,
+    // 有未使用的变量时，抛出错误
+    "noUnusedLocals": true,
+    // 有未使用的参数时，抛出错误
+    "noUnusedParameters": true,
+    // 模块名到基于 baseUrl 的路径映射的列表
+    "paths": {
+      // "@/*": ["./src/*"],
+      // "@components/*": ["./src/components/*"]
+    },
+    // 需要包含的类型声明文件名列表
+    "types": ["vite/client", "node"],
+    "composite": true
+  }
+}
