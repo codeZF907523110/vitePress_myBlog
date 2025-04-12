@@ -1,26 +1,33 @@
-name: Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - master
+      - main  # 如果你的主分支是master，改为master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - run: npm i pnpm -g
-      - run: pnpm install --frozen-lockfile
+          node-version: 20  # 推荐使用LTS版本如18/20
 
-      - name: Build
-        run: pnpm run docs:build
+      - name: Install dependencies
+        run: npm install  # 如果用yarn则改为yarn install
 
-      - name: Deploy
+      - name: Build VitePress
+        run: npm run docs:build  # 确保你的package.json中有此脚本
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/.vitepress/dist
+          publish_dir: ./docs/.vitepress/dist  # 构建后的目录路径
+          # 如果使用自定义域名，添加cname文件
+          # cname: yourdomain.com
