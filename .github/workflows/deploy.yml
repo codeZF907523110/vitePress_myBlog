@@ -5,6 +5,12 @@ on:
     branches:
       - master
 
+# 添加权限声明 ⬇️
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,18 +22,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20  # 推荐使用LTS版本如18/20
+          node-version: 20
 
       - name: Install dependencies
-        run: yarn install  # 如果用yarn则改为yarn install
+        run: yarn install
 
       - name: Build VitePress
-        run: yarn build  # 确保你的package.json中有此脚本
+        run: yarn docs:build  # ✅ 使用标准脚本名（根据你的实际脚本名调整）
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/.vitepress/dist  # 构建后的目录路径
-          # 如果使用自定义域名，添加cname文件
-          # cname: yourdomain.com
+          publish_dir: ./docs/.vitepress/dist
+          dotfiles: true  # ✅ 处理.gitignore问题
