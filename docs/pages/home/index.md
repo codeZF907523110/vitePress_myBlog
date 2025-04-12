@@ -46,6 +46,13 @@ sidebar: false
   import homeFront from './components/homeFront.vue'
 </script>
 <style lang="less">
+  .is-home {
+    padding-top: 0!important;
+    .VPHome{ 
+      margin-bottom: 0!important
+    }
+  }
+  
   .VPFooter {
     display: none!important;
   }

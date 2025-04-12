@@ -1,16 +1,11 @@
 {
-  // "printWidth": 120,
-  // "tabWidth": 2,
-  // "useTabs": false,
-  // "semi": false,
-  // "singleQuote": true,
-  // "trailingComma": "none",
-  // "bracketSpacing": true,
-  // "bracketSameLine": true,
-  // "arrowParens": "always",
-  // "htmlWhitespaceSensitivity": "ignore",
-  // "vueIndentScriptAndStyle": false,
-  // "endOfLine": "auto",
-  // "singleAttributePerLine": false,
-  // "ignorePatterns": ["*.md"]
+  "printWidth": 120,
+  "semi": false,
+  "vueIndentScriptAndStyle": true,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "arrowParens": "avoid",
+  "proseWrap": "never",
+  "htmlWhitespaceSensitivity": "ignore",
+  "endOfLine": "auto"
 }

@@ -4,6 +4,7 @@ import threeJs from './sidebars/frontEndKnowledge/threeJs'
 import learningRecord from './sidebars/frontEndKnowledge/learningRecord'
 import writtenQuestion from './sidebars/frontEndKnowledge/writtenQuestion.ts'
 import myWebgl from './sidebars/frontEndKnowledge/webgl'
+import myAlgorithm from './sidebars/frontEndKnowledge/myAlgorithm'
 import viteConfig from './vite.config.js'
 import { reactSidebar } from './sidebars/faceClassic'
 
@@ -43,7 +44,7 @@ export default defineConfig({
     nav: [
       { text: '主页', link: 'pages/home' },
       {
-        text: '前端学习笔记',
+        text: '学习笔记',
         items: [
           {
             text: 'svg',
@@ -62,13 +63,18 @@ export default defineConfig({
           },
           {
             text: '每日记录',
-            link: 'pages/FrontEndKnowledge/learningRecord/learningRecordHome',
-            activeMatch: '/pages/FrontEndKnowledge/learningRecord/'
+            link: 'pages/frontEndKnowledge/learningRecord/learningRecordHome',
+            activeMatch: '/pages/frontEndKnowledge/learningRecord/' 
           },
           {
             text: '前端常见手写题',
-            link: 'pages/FrontEndKnowledge/writtenQuestion/01_手写Promise的API',
-            activeMatch: '/pages/FrontEndKnowledge/writtenQuestion/'
+            link: 'pages/frontEndKnowledge/writtenQuestion/01_手写Promise的API',
+            activeMatch: '/pages/frontEndKnowledge/writtenQuestion/'
+          },
+          {
+            text: '每日算法',
+            link: 'pages/frontEndKnowledge/myAlgorithm/01_N皇后问题',
+            activeMatch: '/pages/frontEndKnowledge/myAlgorithm/'
           }
         ],
         activeMatch: '/pages/frontEndKnowledge'
@@ -93,6 +99,7 @@ export default defineConfig({
       ...learningRecord,
       ...writtenQuestion,
       ...reactSidebar,
+      ...myAlgorithm,
       'pages/myInfo': [
         {
           text: '关于我'
