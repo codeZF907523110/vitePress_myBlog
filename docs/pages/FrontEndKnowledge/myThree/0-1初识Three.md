@@ -221,7 +221,7 @@ renderer.setClearColor(0x999999)
 
 > 看完以上基础知识我们来做一个小球吧
 
-> 运行以下代码后我们可以看到一个转动的地球
+> 运行以下代码后我们可以看到一个转动的地球😊
 
 <showRun>
   <template #svgCode>
