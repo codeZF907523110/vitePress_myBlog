@@ -13,7 +13,7 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   title: '甜甜小破站',
   description: 'A VitePress Site',
-  base: '/',
+  base: '/zf_vitePress_blog',
   cleanUrls: true,
   metaChunk: true,
   vite: viteConfig,
@@ -28,7 +28,7 @@ export default defineConfig({
       level: 'deep'
     },
     logo: '/svg/blogLogo.svg',
-    logoLink: '/pages/home',
+    logoLink: '/zf_vitePress_blog/pages/home',
     lastUpdated: {
       text: '最后更新时间'
     },
@@ -64,7 +64,7 @@ export default defineConfig({
           {
             text: '每日记录',
             link: 'pages/frontEndKnowledge/learningRecord/learningRecordHome',
-            activeMatch: '/pages/frontEndKnowledge/learningRecord/' 
+            activeMatch: '/pages/frontEndKnowledge/learningRecord/'
           },
           {
             text: '前端常见手写题',
