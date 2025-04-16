@@ -38,12 +38,16 @@ layout: home
 sidebar: false
 ---
 
-<!-- <homeFront /> -->
+<!-- <girlRobot /> -->
+<robot />
+<homeFront />
 <homePage />
 
 <script lang="ts" setup>
   import homePage from './components/homePage.vue'
   import homeFront from './components/homeFront.vue'
+  import robot from './components/robot.vue'
+  // import girlRobot from './components/girlRobot.vue'
 </script>
 <style lang="less">
   .is-home {
