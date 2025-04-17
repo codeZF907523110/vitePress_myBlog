@@ -4,6 +4,10 @@
 :root {
   width: 100vw;
   overflow-x: hidden;
+  #app {
+    width: 100vw;
+    overflow-x: hidden;
+  }
   ul li::marker {
     color: rgb(255, 104, 129) !important;
   }
@@ -53,8 +57,10 @@
       width: var(--vp-sidebar-width) !important;
     }
     .VPNavBar.has-sidebar .title {
-      padding-left: 20px !important;
+      padding-left: 0 !important;
       width: auto;
+      display: flex;
+      justify-content: center;
     }
     .VPContent.has-sidebar {
       padding-left: var(--vp-sidebar-width);
@@ -74,8 +80,15 @@
 .container {
   max-width: 100% !important;
   padding: 0 !important;
+  .title {
+    position: static !important;
+    width: var(--vp-sidebar-width) !important;
+    box-sizing: border-box;
+    padding: 0 !important;
+  }
   .content {
     font-family: '微软雅黑' !important;
+    padding-left: 0 !important;
 
     code {
       font-family: '黑体';
@@ -135,6 +148,13 @@
     }
   }
 }
+
+/* 当侧边栏收起时，标题宽度需要调整 */
+.VPNavBar.has-sidebar .title.sidebar-collapsed {
+  width: auto !important;
+  padding-left: 20px !important;
+}
+
 .VPNav {
   .VPNavBar {
     background-color: #fff;
@@ -197,4 +217,74 @@
   src: url('../../public//fonts//font1.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+/** 
+  侧边栏收起/展开按钮样式
+**/
+.sidebar-toggle-button {
+  position: fixed;
+  bottom: 80px;
+  left: calc(var(--vp-sidebar-width) - 20px);
+  width: 40px;
+  height: 40px;
+  background-color: var(--vp-c-brand-1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+
+  /* 在移动设备上隐藏按钮 */
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+/* 添加收起状态下的位置样式 */
+.sidebar-toggle-button.collapsed {
+  left: 20px; /* 侧边栏收起后，按钮靠近左边界 */
+}
+
+/* 其他按钮样式保持不变 */
+.sidebar-toggle-button:hover {
+  transform: scale(1.1);
+}
+
+.sidebar-toggle-button .toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.sidebar-toggle-button.collapsed .toggle-icon {
+  /* 不再使用旋转，而是在JS中直接替换箭头内容 */
+  /* transform: rotate(180deg); */
+}
+
+.VPSidebar {
+  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+}
+
+.VPSidebar.collapsed {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.VPContent.has-sidebar {
+  transition: padding-left 0.3s ease;
+}
+
+.VPContent.has-sidebar.sidebar-collapsed {
+  padding-left: 0 !important;
+}
+
+.VPNavBar.has-sidebar .content {
+  transition: padding-left 0.3s ease;
+}
+
+.VPNavBar.has-sidebar .content.sidebar-collapsed {
+  padding-left: 0 !important;
 }

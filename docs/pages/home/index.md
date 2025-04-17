@@ -60,4 +60,16 @@ sidebar: false
   .VPFooter {
     display: none!important;
   }
+
+  html, body {
+    overflow: hidden !important;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  .VPContent {
+    height: 100vh;
+    overflow: hidden;
+  }
 </style>
