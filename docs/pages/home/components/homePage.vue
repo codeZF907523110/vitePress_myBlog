@@ -32,15 +32,10 @@
 <style lang="less" scoped>
   .home-page {
     overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 
     .home-banner {
       width: 100%;
-      height: 100%;
+      height: 100vh;
       overflow: hidden;
       position: relative;
 

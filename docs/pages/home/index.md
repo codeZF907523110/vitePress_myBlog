@@ -48,10 +48,50 @@ sidebar: false
   import homeFront from './components/homeFront.vue'
   import robot from './components/robot.vue'
   // import girlRobot from './components/girlRobot.vue'
+  import { onMounted, onUnmounted } from 'vue'
+  import { useRoute } from 'vitepress'
+  
+  // 监控路由，只在首页禁用滚动
+  const route = useRoute()
+  
+  const disableScroll = () => {
+    if (route.path === '/') {
+      document.documentElement.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden'
+    }
+  }
+  
+  const enableScroll = () => {
+    document.documentElement.style.overflow = ''
+    document.body.style.overflow = ''
+  }
+  
+  onMounted(() => {
+    disableScroll()
+  })
+  
+  onUnmounted(() => {
+    enableScroll()
+  })
 </script>
 <style lang="less">
   .is-home {
     padding-top: 0!important;
+    
+    /* 首页特有的样式 */
+    &.VPContent, 
+    & .VPContent {
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    /* 嵌套选择器，限制只在首页生效 */
+    & html, 
+    & body {
+      overflow: hidden !important;
+      height: 100%;
+    }
+    
     .VPHome{ 
       margin-bottom: 0!important
     }
@@ -59,17 +99,5 @@ sidebar: false
   
   .VPFooter {
     display: none!important;
-  }
-
-  html, body {
-    overflow: hidden !important;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-
-  .VPContent {
-    height: 100vh;
-    overflow: hidden;
   }
 </style>
