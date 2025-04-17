@@ -12,6 +12,7 @@
   "dependencies": {
     "cannon-es": "^0.20.0",
     "element-plus": "^2.7.6",
+    "gsap": "^3.12.7",
     "three": "^0.170.0",
     "vitepress": "^1.2.3"
   },

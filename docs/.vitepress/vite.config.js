@@ -6,7 +6,6 @@ export default {
     }
   },
   server: {
-    port: 5000,
-    https: false
+    port: 5000
   }
 }
