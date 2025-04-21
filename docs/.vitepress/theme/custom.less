@@ -13,10 +13,10 @@
   }
   --vp-c-brand-1: #42b883 !important;
   .vp-doc :not(pre) > code {
-    color: #ff8380 !important;
+    // color: #ff8380 !important;
     display: inline-block;
     height: 25px;
-    line-height: 25px;
+    line-height: 20px;
   }
   .common-image {
     width: 60%;
@@ -69,6 +69,9 @@
       padding-left: var(--vp-sidebar-width);
     }
   }
+}
+.VPNavBar[data-v-cf6e7c5e]:not(.home) {
+  background-color: var(--vp-nav-bg-color) !important;
 }
 .outline-link:hover {
   color: #42b883 !important;
@@ -132,6 +135,11 @@
   }
   .VPButton.brand {
     background: rgb(191, 0, 255);
+  }
+  .VPDocAsideOutline {
+    .content {
+      padding-left: 10px !important;
+    }
   }
   .clip {
     background: linear-gradient(to bottom right, #00b7ff, #f700ff); /*设置渐变的方向从左到右 颜色从ff0000到ffff00*/
