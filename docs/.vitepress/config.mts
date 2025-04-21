@@ -53,7 +53,7 @@ export default defineConfig({
           },
           {
             text: 'webgl',
-            link: 'pages/frontEndKnowledge/myWebgl/01_初识Webgl',
+            link: 'pages/frontEndKnowledge/myWebgl/01_getToKnowWebGL',
             activeMatch: '/pages/frontEndKnowledge/myWebgl/'
           },
           {

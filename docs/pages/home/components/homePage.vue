@@ -4,10 +4,14 @@
       <img :src="bannerBackImg" alt="" />
       <div class="banner-mask"></div>
       <div class="banner-text">
-        <div class="banner-title">
+        <div class="banner-text-title">
           {{ bannerText }}
           <span class="cursor-span">_</span>
         </div>
+
+        <!-- <div class="banner-title">
+          
+        </div> -->
       </div>
       <div></div>
     </div>
@@ -57,53 +61,47 @@
 
       .banner-text {
         position: absolute;
-        top: 0;
         left: 0;
+        top: 0;
         width: 100%;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: url(../../../public/image/BlogBackGround.jpg) no-repeat center/cover;
-        background-clip: text;
-
-        .banner-title {
-          width: 100%;
-          height: auto;
-          text-align: center;
+        .banner-text-title {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          background: url(../../../public/image/BlogBackGround.jpg) no-repeat center/cover; // 背景图片
           font-size: 80px;
           font-weight: bold;
-          color: transparent;
-          -webkit-text-stroke: 1px #fff;
-          z-index: 2;
-          cursor: pointer;
-          padding: 0 20px;
+          color: transparent; // 设置文字颜色为透明
+          -webkit-text-stroke: 1px #fff; // 添加描边以增强可读性
+          background-clip: text; // 将背景限制在文字区域内
+          -webkit-background-clip: text;
+        }
+        .cursor-span {
+          color: #fff;
+          animation: cursorSpanAnimation 1s forwards infinite;
+          opacity: 0;
+        }
 
-          .cursor-span {
-            color: #fff;
-            animation: cursorSpanAnimation 1s forwards infinite;
+        @keyframes cursorSpanAnimation {
+          0% {
             opacity: 0;
           }
-
-          @keyframes cursorSpanAnimation {
-            0% {
-              opacity: 0;
-            }
-            1% {
-              opacity: 1;
-            }
-            49% {
-              opacity: 1;
-            }
-            50% {
-              opacity: 0;
-            }
-            99% {
-              opacity: 0;
-            }
-            100% {
-              opacity: 1;
-            }
+          1% {
+            opacity: 1;
+          }
+          49% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          99% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
           }
         }
       }

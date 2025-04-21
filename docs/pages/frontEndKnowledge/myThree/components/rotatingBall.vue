@@ -3,9 +3,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import * as THREE from 'three'
-import world from '../../../../public/image/BlogBackGround.jpg'
+import imageData from '../../../../public/image/BlogBackGround.jpg'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 onMounted(() => {
@@ -60,7 +60,7 @@ onMounted(() => {
 
   // 加载贴图
   const textureLoader = new THREE.TextureLoader()
-  textureLoader.load(world, (texture) => {
+  textureLoader.load(imageData, (texture) => {
     // 创建球体
     const geometry = new THREE.SphereGeometry(1)
     // 球体材质

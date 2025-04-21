@@ -3,7 +3,7 @@ export default {
     {
       text: 'webgl',
       collapsed: false,
-      items: [{ text: '初识webgl', link: '/pages/frontEndKnowledge/myWebgl/01_初识webgl' }]
+      items: [{ text: '初识webgl', link: '/pages/frontEndKnowledge/myWebgl/01_getToKnowWebGL' }]
     }
   ]
 }
