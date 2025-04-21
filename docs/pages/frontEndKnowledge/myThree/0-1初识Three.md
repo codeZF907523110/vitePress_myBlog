@@ -1,14 +1,15 @@
 # 一、初识 three.js
 
-<!-- <showRun>
+<showRun>
   <template #svgCode>
     <ParticleImage />
   </template>
-</showRun> -->
+</showRun>
 
 ::: warning three.js 官方描述 three.js 是一个基于 WebGL 的 JavaScript 3D 库，它可以在浏览器中创建和显示动画的 3D 图形。这个库提供了许多工具和函数，使得开发者可以更容易地创建复杂的 3D 场景，包括摄像机、光影、材质等各种对象。
 
-three.js 被广泛应用于各种领域，如互动式可视化、游戏开发、虚拟现实和增强现实、在线教育以及影视动画等。其代码托管在 GitHub 上，开发者可以使用 npm 和现代构建工具来安装 three.js，或者只需通过静态主机或 CDN 来使用。 :::
+three.js 被广泛应用于各种领域，如互动式可视化、游戏开发、虚拟现实和增强现实、在线教育以及影视动画等。其代码托管在 GitHub 上，开发者可以使用 npm 和现代构建工具来安装 three.js，或者只需通过静态主机或 CDN 来使用。
+:::
 
 ## 1. 创建 Canvas 画布
 

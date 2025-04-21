@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, shallowRef } from 'vue'
+import { onMounted } from 'vue'
 import spiderManAction from './spiderManAction'
 
 onMounted(() => {

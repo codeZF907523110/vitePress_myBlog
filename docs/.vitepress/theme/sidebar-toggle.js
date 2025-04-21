@@ -13,19 +13,22 @@ export const useSidebarToggle = () => {
 
     // 创建切换按钮
     const createToggleButton = () => {
+      const VPSidebar = document.querySelector('.VPSidebar')
+
       // 检查是否已存在按钮，如果存在则直接返回
       const existingButton = document.querySelector('.sidebar-toggle-button')
-      if (existingButton) {
-        return existingButton
+      if (!VPSidebar && existingButton) {
+        document.body.removeChild(existingButton)
       }
+      if (existingButton) return existingButton
 
       const button = document.createElement('div')
       button.className = `sidebar-toggle-button ${getSidebarState() ? 'collapsed' : ''}`
       // 初始箭头根据侧边栏状态设置
       button.innerHTML = `<span class="toggle-icon">${getSidebarState() ? '❯' : '❮'}</span>`
       button.setAttribute('title', '切换侧边栏')
+      if (VPSidebar) document.body.appendChild(button)
 
-      document.body.appendChild(button)
       return button
     }
 

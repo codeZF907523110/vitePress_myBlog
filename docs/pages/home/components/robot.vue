@@ -107,7 +107,6 @@
 
     // 添加拖动状态监听
     robotCanvas.value.addEventListener('mousedown', onDragStart)
-    document.addEventListener('mouseup', onDragEnd)
 
     // 开始动画循环
     animate()
@@ -423,13 +422,6 @@
   // 拖动开始处理
   const onDragStart = (event: MouseEvent) => {
     if (!isMouseInRobotContainer(event)) return
-    isDragging = true
-    // 拖动时暂时禁用头部跟随鼠标
-  }
-
-  // 拖动结束处理
-  const onDragEnd = () => {
-    isDragging = false
   }
 
   // 动画循环
@@ -468,7 +460,6 @@
     if (robotCanvas.value) {
       robotCanvas.value.removeEventListener('mousedown', onDragStart)
     }
-    document.removeEventListener('mouseup', onDragEnd)
 
     if (renderer && robotCanvas.value) {
       robotCanvas.value.removeChild(renderer.domElement)
