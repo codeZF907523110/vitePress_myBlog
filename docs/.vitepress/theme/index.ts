@@ -8,7 +8,7 @@ import { useHeadingCollapse } from './utils/heading-collapse' // 更新导入路
 
 export default {
   ...DefaultTheme,
-  NotFound: () => '404', // <- this is a Vue 3 functional component
+  NotFound: () => '404',
   enhanceApp({ app, router, siteData }) {
     app.use(ElementPlus)
     // 应用已有的增强功能
